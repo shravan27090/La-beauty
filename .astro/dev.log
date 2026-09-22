@@ -763,3 +763,5 @@
 {"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/laser-hair-reduction-extractpics.webp\" expected, but received \"/laser-hair-reduction-extractpics.webp\".","label":"router","level":"error"}
 {"message":"src/components/ImageGallery.astro","label":"watch","level":"info"}
 {"message":"[200] / 12ms","label":null,"level":"info"}
+{"message":"src/components/ReviewsMarquee.astro","label":"watch","level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}

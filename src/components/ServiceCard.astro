@@ -1,6 +1,7 @@
 ---
 import Button from "./ui/Button.astro";
 import Separator from "./ui/Separator.astro";
+import { getPath } from "../utils/paths";
 
 interface Props {
   title: string;
@@ -21,6 +22,8 @@ const {
   image,
   popular = false,
 } = Astro.props;
+
+const imageSrc = getPath(image);
 
 // Safe unique ID for DOM referencing
 const cardId =
@@ -45,7 +48,7 @@ const cardId =
   <!-- Card Image Container -->
   <div class="relative h-60 sm:h-64 overflow-hidden bg-[#ebebdf]">
     <img
-      src={image}
+      src={imageSrc}
       alt={title}
       width="400"
       height="260"
@@ -139,9 +142,7 @@ const cardId =
 
       <div class="grid grid-cols-2 gap-2" onclick="event.stopPropagation()">
         <Button
-          href="/contact"
-          target="_blank"
-          rel="noopener noreferrer"
+          href={getPath("/contact")}
           class="flex items-center justify-center py-2.5 px-3 uppercase tracking-wider transition-all duration-200 text-center"
         >
           Book Now
@@ -192,7 +193,7 @@ const cardId =
     <!-- Large Image Display -->
     <div class="relative w-full h-64 sm:h-80 bg-[#ebebdf] flex-shrink-0">
       <img
-        src={image}
+        src={imageSrc}
         alt={title}
         class="w-full h-full object-cover"
         loading="lazy"

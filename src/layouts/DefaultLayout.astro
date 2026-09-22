@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { getPath } from '../utils/paths';
 
 interface Props {
   title?: string;
@@ -13,7 +14,7 @@ interface Props {
 const {
   title = 'La Beauté | Where Beauty Meets Art | Luxury Nail & Beauty Salon Udupi',
   description = 'Premier luxury nail lounge, Russian manicure, bespoke nail art, painless laser hair reduction, and transformative skincare in Manipal, Udupi. 4.9★ rated.',
-  image = '/La-Beaute-logo.png',
+  image = getPath('/La-Beaute-logo.png'),
   canonicalUrl = Astro.url.href,
 } = Astro.props;
 
@@ -75,7 +76,7 @@ const businessSchema = {
     <link rel="canonical" href={canonicalUrl} />
     
     <!-- User Specified Favicon -->
-    <link rel="icon" type="image/webp" href="/La-Beaute-Fav-1-1.webp" />
+    <link rel="icon" type="image/webp" href={getPath('/La-Beaute-Fav-1-1.webp')} />
 
     <!-- Google Fonts Preconnect & Load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

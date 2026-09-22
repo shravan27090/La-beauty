@@ -4,6 +4,7 @@ import ServiceCard from "../components/ServiceCard.astro";
 import ImageGallery from "../components/ImageGallery.astro";
 import ReviewsMarquee from "../components/ReviewsMarquee.astro";
 import Button from "../components/ui/Button.astro";
+import { getPath } from "../utils/paths";
 
 const featuredServices = [
   {
@@ -114,9 +115,7 @@ const featuredServices = [
           >
             <!-- Primary Action -->
             <Button
-              href="/contact"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={getPath("/contact")}
               variant="default"
               size="lg"
               class="w-full sm:w-auto"
@@ -136,7 +135,7 @@ const featuredServices = [
 
             <!-- Secondary Outline Action -->
             <Button
-              href="/services"
+              href={getPath("/services")}
               variant="outline"
               size="lg"
               class="w-full sm:w-auto"
@@ -176,7 +175,7 @@ const featuredServices = [
               class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] bg-white"
             >
               <img
-                src="/nail-services-extractpics.webp"
+                src={getPath("/nail-services-extractpics.webp")}
                 alt="Luxury Nail Art at La Beauté"
                 class="w-full h-full object-cover"
                 loading="eager"
@@ -316,7 +315,7 @@ const featuredServices = [
       </div>
 
       <div class="mt-14 text-center">
-        <Button href="/services" variant="outline" size="lg">
+        <Button href={getPath("/services")} variant="outline" size="lg">
           <span>Explore Complete Services & Add-Ons</span>
           <svg
             class="w-4 h-4 ml-2"
@@ -347,7 +346,7 @@ const featuredServices = [
             class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#f6f6ee]"
           >
             <img
-              src="/why-us-1-e1743867652246-extractpics.webp"
+              src={getPath("/why-us-1-e1743867652246-extractpics.webp")}
               alt="La Beauté Salon in Manipal"
               width="700"
               height="813"
@@ -477,7 +476,7 @@ const featuredServices = [
           </h2>
         </div>
         <a
-          href="/portfolio"
+          href={getPath("/portfolio")}
           class="mt-4 md:mt-0 inline-flex items-center space-x-2 text-xs uppercase tracking-wider font-semibold text-lb-gray hover:text-black transition-colors"
         >
           <span>Open Full Gallery & Lightbox</span>

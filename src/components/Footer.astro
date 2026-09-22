@@ -1,4 +1,6 @@
 ---
+import { getPath } from "../utils/paths";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -8,9 +10,9 @@ const currentYear = new Date().getFullYear();
       
       <!-- Brand & Philosophy Column -->
       <div class="space-y-4">
-        <a href="/" class="block">
+        <a href={getPath("/")} class="block">
           <img
-            src="/La-Beaute-F9F7F1-BG-3d3d3d-full-Trans-e1743959280716-extractpics.webp"
+            src={getPath("/La-Beaute-F9F7F1-BG-3d3d3d-full-Trans-e1743959280716-extractpics.webp")}
             alt="La Beauté Logo"
             class="h-12 w-auto aspect-[348/256] object-contain brightness-0 invert opacity-90"
             width="348"
@@ -41,37 +43,37 @@ const currentYear = new Date().getFullYear();
         </h3>
         <ul class="space-y-2.5 text-sm text-gray-300">
           <li>
-            <a href="/" class="hover:text-white transition-colors flex items-center space-x-2">
+            <a href={getPath("/")} class="hover:text-white transition-colors flex items-center space-x-2">
               <span class="text-xs text-gray-400">&bull;</span>
               <span>Home</span>
             </a>
           </li>
           <li>
-            <a href="/services" class="hover:text-white transition-colors flex items-center space-x-2">
+            <a href={getPath("/services")} class="hover:text-white transition-colors flex items-center space-x-2">
               <span class="text-xs text-gray-400">&bull;</span>
               <span>Services & Treatments</span>
             </a>
           </li>
           <li>
-            <a href="/portfolio" class="hover:text-white transition-colors flex items-center space-x-2">
+            <a href={getPath("/portfolio")} class="hover:text-white transition-colors flex items-center space-x-2">
               <span class="text-xs text-gray-400">&bull;</span>
               <span>Nail Art Portfolio</span>
             </a>
           </li>
           <li>
-            <a href="/about" class="hover:text-white transition-colors flex items-center space-x-2">
+            <a href={getPath("/about")} class="hover:text-white transition-colors flex items-center space-x-2">
               <span class="text-xs text-gray-400">&bull;</span>
               <span>Our Story & Master Stylists</span>
             </a>
           </li>
           <li>
-            <a href="/contact" class="hover:text-white transition-colors flex items-center space-x-2">
+            <a href={getPath("/contact")} class="hover:text-white transition-colors flex items-center space-x-2">
               <span class="text-xs text-gray-400">&bull;</span>
               <span>Contact & Appointments</span>
             </a>
           </li>
           <li>
-            <a href="/faq" class="hover:text-white transition-colors flex items-center space-x-2">
+            <a href={getPath("/faq")} class="hover:text-white transition-colors flex items-center space-x-2">
               <span class="text-xs text-gray-400">&bull;</span>
               <span>Frequently Asked Questions</span>
             </a>

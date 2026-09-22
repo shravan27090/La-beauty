@@ -726,3 +726,40 @@
 {"message":"[200] /portfolio 30ms","label":null,"level":"info"}
 {"message":"[200] /services 38ms","label":null,"level":"info"}
 {"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
+{"message":"server restarted.","label":"vite","level":"info"}
+{"message":"[200] / 14ms","label":null,"level":"info"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/nail-services-extractpics.webp\" expected, but received \"/nail-services-extractpics.webp\".","label":"router","level":"error"}
+{"message":"[200] / 2ms","label":null,"level":"info"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/nail-services-extractpics.webp\" expected, but received \"/nail-services-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/why-us-1-e1743867652246-extractpics.webp\" expected, but received \"/why-us-1-e1743867652246-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/nail-services-extractpics.webp\" expected, but received \"/nail-services-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/classic-manicure-extractpics.webp\" expected, but received \"/classic-manicure-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/pedicure-extractpics.webp\" expected, but received \"/pedicure-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/laser-hair-reduction-extractpics.webp\" expected, but received \"/laser-hair-reduction-extractpics.webp\".","label":"router","level":"error"}
+{"message":"[200] / 13ms","label":null,"level":"info"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/nail-services-extractpics.webp\" expected, but received \"/nail-services-extractpics.webp\".","label":"router","level":"error"}
+{"message":"[200] /services 25ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 25ms","label":null,"level":"info"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/facial-extractpics.webp\" expected, but received \"/facial-extractpics.webp\".","label":"router","level":"error"}
+{"message":"[200] /about 22ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /about 3ms","label":null,"level":"info"}
+{"message":"[200] /contact 35ms","label":null,"level":"info"}
+{"message":"[200] / 20ms","label":null,"level":"info"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/classic-manicure-extractpics.webp\" expected, but received \"/classic-manicure-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/pedicure-extractpics.webp\" expected, but received \"/pedicure-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/laser-hair-reduction-extractpics.webp\" expected, but received \"/laser-hair-reduction-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/nail-services-extractpics.webp\" expected, but received \"/nail-services-extractpics.webp\".","label":"router","level":"error"}
+{"message":"[200] /portfolio 13ms","label":null,"level":"info"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/facial-extractpics.webp\" expected, but received \"/facial-extractpics.webp\".","label":"router","level":"error"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/nail-services-extractpics.webp\" expected, but received \"/nail-services-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/classic-manicure-extractpics.webp\" expected, but received \"/classic-manicure-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/pedicure-extractpics.webp\" expected, but received \"/pedicure-extractpics.webp\".","label":"router","level":"error"}
+{"message":"Request URLs for public/ assets must also include your base. \"/La-beauty/laser-hair-reduction-extractpics.webp\" expected, but received \"/laser-hair-reduction-extractpics.webp\".","label":"router","level":"error"}
+{"message":"src/components/ImageGallery.astro","label":"watch","level":"info"}
+{"message":"[200] / 12ms","label":null,"level":"info"}

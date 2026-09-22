@@ -1,4 +1,6 @@
 ---
+import { getPath } from "../utils/paths";
+
 export interface GalleryItem {
   id: string;
   title: string;
@@ -140,12 +142,12 @@ const displayItems = limit ? items.slice(0, limit) : items;
         data-category={item.category}
         data-title={item.title}
         data-desc={item.description}
-        data-img={item.image}
+        data-img={getPath(item.image)}
         data-category-label={item.categoryLabel}
       >
         <div class="relative h-72 overflow-hidden bg-[#ebebdf]">
           <img
-            src={item.image}
+            src={getPath(item.image)}
             alt={item.title}
             loading="lazy"
             class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"

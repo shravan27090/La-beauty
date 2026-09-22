@@ -1,5 +1,6 @@
 ---
 import Button from "./ui/Button.astro";
+import { getPath } from "../utils/paths";
 
 interface Props {
   currentPath?: string;
@@ -8,15 +9,16 @@ interface Props {
 const { currentPath = Astro.url.pathname } = Astro.props;
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: getPath("/") },
+  { label: "Services", href: getPath("/services") },
+  { label: "Portfolio", href: getPath("/portfolio") },
+  { label: "About", href: getPath("/about") },
+  { label: "Contact", href: getPath("/contact") },
 ];
 
 const isActive = (href: string) => {
-  if (href === "/") return currentPath === "/";
+  const homePath = getPath("/");
+  if (href === homePath) return currentPath === homePath || currentPath === `${homePath}/`;
   return currentPath.startsWith(href);
 };
 ---
@@ -32,12 +34,12 @@ const isActive = (href: string) => {
     >
       <!-- Brand Logo + Text Lockup: La Beauté -->
       <a
-        href="/"
+        href={getPath("/")}
         class="flex items-center space-x-3 group focus:outline-none py-1"
         aria-label="La Beauté Home"
       >
         <img
-          src="/La-Beaute-logo.png"
+          src={getPath("/La-Beaute-logo.png")}
           alt="La Beauté Monogram Emblem"
           class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
           width="48"
@@ -116,7 +118,7 @@ const isActive = (href: string) => {
         </a>
 
         <!-- Secondary Outline Booking Button with Primary/40 lighter hover -->
-        <Button variant="outline" size="sm" href="/contact"> Book Now </Button>
+        <Button variant="outline" size="sm" href={getPath("/contact")}> Book Now </Button>
       </div>
 
       <!-- Mobile Right Section (Call, WhatsApp & Hamburger) -->
@@ -213,7 +215,7 @@ const isActive = (href: string) => {
       }
     </nav>
     <div class="pt-4 border-t border-[#ebebdf] space-y-3 max-w-lg mx-auto">
-      <Button href="/contact" variant="outline" class="w-full justify-center">
+      <Button href={getPath("/contact")} variant="outline" class="w-full justify-center">
         Book Now
       </Button>
     </div>

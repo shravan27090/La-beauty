@@ -1,6 +1,7 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Button from '../components/ui/Button.astro';
+import { getPath } from '../utils/paths';
 ---
 
 <DefaultLayout
@@ -27,7 +28,7 @@ import Button from '../components/ui/Button.astro';
 
       <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button
-          href="/"
+          href={getPath("/")}
           variant="default"
           size="default"
           class="w-full sm:w-auto"
@@ -35,7 +36,7 @@ import Button from '../components/ui/Button.astro';
           Return to Home
         </Button>
         <Button
-          href="/services"
+          href={getPath("/services")}
           variant="outline"
           size="default"
           class="w-full sm:w-auto"

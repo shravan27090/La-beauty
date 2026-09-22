@@ -3,7 +3,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://la-beaute.in',
+  site: 'https://shravan27090.github.io',
+  base: '/La-beauty',
   devToolbar: {
     enabled: false,
   },

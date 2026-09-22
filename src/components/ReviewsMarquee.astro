@@ -65,6 +65,9 @@ const reviews: Review[] = [
     date: "4 weeks ago",
   },
 ];
+
+// Triplicate reviews to enable seamless bidirectional infinite looping
+const allReviews = [...reviews, ...reviews, ...reviews];
 ---
 
 <div
@@ -129,14 +132,14 @@ const reviews: Review[] = [
     </div>
   </div>
 
-  <!-- Horizontal Scroll Track with Auto-Animation & Pause on Hover -->
+  <!-- Horizontal Scroll Track with Auto-Animation & Infinite Loop -->
   <div
     id="reviews-track"
-    class="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth px-4 sm:px-6 lg:px-8 py-4 cursor-grab active:cursor-grabbing select-none"
+    class="flex gap-6 overflow-x-auto scrollbar-none px-4 sm:px-6 lg:px-8 py-4 cursor-grab active:cursor-grabbing select-none"
     style="scrollbar-width: none; -ms-overflow-style: none;"
   >
     {
-      reviews.map((r) => (
+      allReviews.map((r) => (
         <div class="min-w-[290px] sm:min-w-[360px] max-w-[380px] flex-shrink-0 bg-white rounded-3xl p-7 border border-[#ebebdf] shadow-sm hover:shadow-luxury-hover transition-all duration-300 flex flex-col justify-between h-[280px]">
           <div>
             <div class="flex items-center justify-between mb-3">
@@ -205,35 +208,95 @@ const reviews: Review[] = [
 </div>
 
 <script>
-  const track = document.getElementById("reviews-track");
+  const track = document.getElementById("reviews-track") as HTMLDivElement | null;
   const prevBtn = document.getElementById("prev-review-btn");
   const nextBtn = document.getElementById("next-review-btn");
 
   let isPaused = false;
+  let isDragging = false;
+  let startX = 0;
+  let scrollLeftStart = 0;
   let scrollSpeed = 0.8; // px per tick
   let animationId: number;
 
+  function getSetWidth(): number {
+    if (!track) return 0;
+    return track.scrollWidth / 3;
+  }
+
+  // Seamless wrap function that works in both forward and backward directions
+  function checkInfiniteLoop() {
+    if (!track) return;
+    const setWidth = getSetWidth();
+    if (setWidth <= 0) return;
+
+    // Scrolled forward past the 2nd set -> shift seamlessly back by 1 set
+    if (track.scrollLeft >= setWidth * 2) {
+      track.scrollLeft -= setWidth;
+    }
+    // Scrolled backward before the start of the 2nd set -> shift seamlessly forward by 1 set
+    else if (track.scrollLeft <= setWidth * 0.1) {
+      track.scrollLeft += setWidth;
+    }
+  }
+
+  // Initialize track position in the middle set
+  function initPosition() {
+    if (!track) return;
+    const setWidth = getSetWidth();
+    if (setWidth > 0) {
+      track.scrollLeft = setWidth;
+    }
+  }
+
+  // Continuous auto-scroll loop (60fps)
   function autoScroll() {
-    if (!isPaused && track) {
+    if (!isPaused && !isDragging && track) {
       track.scrollLeft += scrollSpeed;
-      // Loop back smoothly when reached end
-      if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 5) {
-        track.scrollLeft = 0;
-      }
+      checkInfiniteLoop();
     }
     animationId = requestAnimationFrame(autoScroll);
   }
 
-  // Start smooth auto scroll
-  animationId = requestAnimationFrame(autoScroll);
+  // Start auto scroll and initial position
+  requestAnimationFrame(() => {
+    initPosition();
+    animationId = requestAnimationFrame(autoScroll);
+  });
 
-  // Pause on hover or touch
-  track?.addEventListener("mouseenter", () => {
+  // Re-check on window resize
+  window.addEventListener("resize", () => {
+    checkInfiniteLoop();
+  });
+
+  // Mouse Drag on Desktop
+  track?.addEventListener("mousedown", (e) => {
+    isDragging = true;
     isPaused = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeftStart = track.scrollLeft;
   });
-  track?.addEventListener("mouseleave", () => {
-    isPaused = false;
+
+  window.addEventListener("mouseup", () => {
+    if (isDragging) {
+      isDragging = false;
+      checkInfiniteLoop();
+      setTimeout(() => {
+        isPaused = false;
+      }, 1500);
+    }
   });
+
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging || !track) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.4;
+    track.scrollLeft = scrollLeftStart - walk;
+    checkInfiniteLoop();
+  });
+
+  // Touch Swipe on Mobile
   track?.addEventListener(
     "touchstart",
     () => {
@@ -241,30 +304,60 @@ const reviews: Review[] = [
     },
     { passive: true },
   );
+
   track?.addEventListener(
     "touchend",
     () => {
+      checkInfiniteLoop();
       setTimeout(() => {
         isPaused = false;
-      }, 2500);
+      }, 2000);
     },
     { passive: true },
   );
 
-  // Arrow button clicks
+  // Manual scroll event (trackpad or wheel)
+  let scrollDebounce: any;
+  track?.addEventListener(
+    "scroll",
+    () => {
+      if (isPaused) {
+        clearTimeout(scrollDebounce);
+        scrollDebounce = setTimeout(() => {
+          checkInfiniteLoop();
+        }, 50);
+      }
+    },
+    { passive: true },
+  );
+
+  // Pause on hover
+  track?.addEventListener("mouseenter", () => {
+    isPaused = true;
+  });
+
+  track?.addEventListener("mouseleave", () => {
+    if (!isDragging) {
+      isPaused = false;
+    }
+  });
+
+  // Arrow navigation buttons
   prevBtn?.addEventListener("click", () => {
     isPaused = true;
-    track?.scrollBy({ left: -340, behavior: "smooth" });
+    track?.scrollBy({ left: -360, behavior: "smooth" });
     setTimeout(() => {
+      checkInfiniteLoop();
       isPaused = false;
-    }, 3000);
+    }, 700);
   });
 
   nextBtn?.addEventListener("click", () => {
     isPaused = true;
-    track?.scrollBy({ left: 340, behavior: "smooth" });
+    track?.scrollBy({ left: 360, behavior: "smooth" });
     setTimeout(() => {
+      checkInfiniteLoop();
       isPaused = false;
-    }, 3000);
+    }, 700);
   });
 </script>

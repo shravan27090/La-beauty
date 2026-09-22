@@ -1,4 +1,7 @@
 ---
+import Button from "./ui/Button.astro";
+import Separator from "./ui/Separator.astro";
+
 interface Props {
   title: string;
   category: string;
@@ -18,15 +21,22 @@ const {
   image,
   popular = false,
 } = Astro.props;
+
+// Safe unique ID for DOM referencing
+const cardId =
+  title.toLowerCase().replace(/[^a-z0-9]/g, "-") +
+  "-" +
+  Math.random().toString(36).slice(2, 7);
 ---
 
 <div
-  class="group relative bg-white rounded-2xl overflow-hidden border border-[#ebebdf] shadow-sm hover:shadow-luxury-hover transition-all duration-300 flex flex-col h-full hover:-translate-y-1"
+  class="service-card group relative bg-white rounded-2xl overflow-hidden border border-[#ebebdf] shadow-sm hover:shadow-luxury-hover transition-all duration-300 flex flex-col h-full hover:-translate-y-1 cursor-pointer"
+  data-card-id={cardId}
 >
-  <!-- Popular Badge -->
+  <!-- Popular Badge (top-left if popular) -->
   {
     popular && (
-      <div class="absolute top-3.5 right-3.5 z-20 bg-lb-gray-dark text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm border border-white/20">
+      <div class="absolute top-3.5 left-3.5 z-20 bg-lb-gray-dark text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm border border-white/20">
         Most Loved
       </div>
     )
@@ -48,6 +58,28 @@ const {
     >
     </div>
 
+    <!-- Expand Zoom Icon Button -->
+    <button
+      type="button"
+      class="service-zoom-btn absolute top-3.5 right-3.5 w-9 h-9 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30 z-20 cursor-pointer"
+      aria-label={`View ${title} details`}
+    >
+      <svg
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+        ></path>
+      </svg>
+    </button>
+
     <!-- Category pill -->
     <span
       class="absolute bottom-3.5 left-3.5 text-[11px] font-semibold uppercase tracking-wider text-white bg-black/45 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 font-sans"
@@ -65,6 +97,7 @@ const {
         {title}
       </h3>
 
+      <!-- 3-line readable description -->
       <p
         class="text-xs sm:text-sm text-lb-gray leading-relaxed mb-6 font-light line-clamp-3"
       >
@@ -104,23 +137,221 @@ const {
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-2">
-        <a
+      <div class="grid grid-cols-2 gap-2" onclick="event.stopPropagation()">
+        <Button
           href="/contact"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-center py-2.5 px-3 rounded-full text-xs font-semibold uppercase tracking-wider bg-lb-gray text-white hover:bg-lb-gray-dark transition-all duration-200 shadow-sm text-center"
+          class="flex items-center justify-center py-2.5 px-3 uppercase tracking-wider transition-all duration-200 text-center"
         >
           Book Now
-        </a>
-        <!-- Secondary Outline Button with Primary/40 hover -->
-        <a
+        </Button>
+        <Button
+          variant="outline"
           href={`tel:+917204103767`}
-          class="flex items-center justify-center py-2.5 px-3 rounded-full text-xs font-semibold uppercase tracking-wider border border-lb-gray text-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark transition-all duration-200 text-center"
+          class="flex items-center justify-center py-2.5 px-3 uppercase tracking-wider border border-lb-gray text-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark transition-all duration-200 text-center"
         >
           Call Salon
-        </a>
+        </Button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Native Light-Dismiss Dialog Modal for Service Details -->
+<dialog
+  id={`service-dialog-${cardId}`}
+  closedby="any"
+  aria-labelledby={`service-dialog-title-${cardId}`}
+  class="service-modal p-0 bg-transparent rounded-3xl max-w-2xl w-[calc(100%-2rem)] sm:w-full mx-auto backdrop:bg-black/80 backdrop:backdrop-blur-md shadow-2xl focus:outline-none overflow-hidden my-auto"
+>
+  <div
+    class="relative bg-white rounded-3xl overflow-hidden border border-white/20 flex flex-col shadow-2xl max-h-[90vh] overflow-y-auto"
+  >
+    <!-- Close Button -->
+    <button
+      type="button"
+      class="service-dialog-close absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-lb-gray transition-colors focus:outline-none cursor-pointer"
+      aria-label="Close Preview"
+      data-dialog-id={`service-dialog-${cardId}`}
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Large Image Display -->
+    <div class="relative w-full h-64 sm:h-80 bg-[#ebebdf] flex-shrink-0">
+      <img
+        src={image}
+        alt={title}
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+      >
+      </div>
+
+      <!-- Category Pill -->
+      <span
+        class="absolute bottom-4 left-4 text-[11px] font-semibold uppercase tracking-wider text-white bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 font-sans"
+      >
+        {category}
+      </span>
+    </div>
+
+    <!-- Modal Content -->
+    <div
+      class="p-6 sm:p-8 bg-[#f6f6ee] flex flex-col gap-6 border-t border-[#ecece2]"
+    >
+      <div>
+        <h4
+          id={`service-dialog-title-${cardId}`}
+          class="font-serif text-2xl sm:text-3xl font-bold text-lb-gray-dark mb-3"
+        >
+          {title}
+        </h4>
+
+        <p class="text-sm sm:text-base text-lb-gray leading-relaxed font-light">
+          {description}
+        </p>
+      </div>
+
+      <!-- Duration & Price with Shadcn 2px Vertical Separator (Only for Service Dialog Box) -->
+      <div
+        class="flex items-center justify-between py-4 border-y border-[#ebebdf]"
+      >
+        <!-- Duration with Clock -->
+        <div
+          class="flex items-center space-x-2 text-xs sm:text-sm font-medium text-lb-gray font-number"
+        >
+          <svg
+            class="w-4 h-4 text-lb-gray shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span class="tracking-wide">{duration}</span>
+        </div>
+
+        <!-- 2px Shadcn Vertical Separator -->
+        <Separator orientation="vertical" class="h-5 w-[2px] bg-[#ebebdf]" />
+
+        <!-- Starting at Price -->
+        <div class="flex items-center space-x-1.5 text-right">
+          <span
+            class="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold text-lb-gray-light font-sans"
+          >
+            Starting at
+          </span>
+          <span
+            class="font-number text-lg sm:text-xl font-bold text-lb-gray-dark"
+          >
+            {price}
+          </span>
+        </div>
+      </div>
+
+      <!-- Action CTAs -->
+      <div
+        class="flex flex-col sm:flex-row items-center justify-end gap-3 pt-1"
+      >
+        <Button
+          variant="outline"
+          href={`tel:+917204103767`}
+          class="w-full sm:w-auto px-6 py-3 uppercase tracking-wider transition-all text-center"
+        >
+          Call Salon
+        </Button>
+        <Button
+          href={`https://wa.me/917204103767?text=Hello%20La%20Beaut%C3%A9,%20I%20would%20like%20to%20reserve%20an%20appointment%20for%20${encodeURIComponent(title)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto px-7 py-3 transition-all duration-200 flex items-center justify-center space-x-2 text-center"
+        >
+          <span>Book Now</span>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </Button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  function initServiceCards() {
+    document.querySelectorAll<HTMLElement>(".service-card").forEach((card) => {
+      if (card.hasAttribute("data-modal-initialized")) return;
+      card.setAttribute("data-modal-initialized", "true");
+
+      const cardId = card.getAttribute("data-card-id");
+      if (!cardId) return;
+
+      const dialog = document.getElementById(
+        `service-dialog-${cardId}`,
+      ) as HTMLDialogElement | null;
+      if (!dialog) return;
+
+      // Clicking anywhere on the card opens the details dialog
+      card.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        // If user clicked a CTA link (Book Now or Call Salon), don't trigger dialog
+        if (target.closest("a")) return;
+
+        dialog.showModal();
+      });
+
+      const zoomBtn = card.querySelector(".service-zoom-btn");
+      zoomBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dialog.showModal();
+      });
+
+      const closeBtn = dialog.querySelector(".service-dialog-close");
+      closeBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dialog.close();
+      });
+
+      // Close on backdrop click (outside modal content box)
+      dialog.addEventListener("click", (event) => {
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width;
+        if (!isInDialog) {
+          dialog.close();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initServiceCards);
+  } else {
+    initServiceCards();
+  }
+  document.addEventListener("astro:page-load", initServiceCards);
+</script>

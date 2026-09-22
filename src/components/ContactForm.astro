@@ -55,6 +55,21 @@ const serviceOptions: MultiSelectOption[] = [
     category: "Consultation",
   },
 ];
+
+const timeSlotOptions = [
+  {
+    value: "Morning (10:00 AM - 1:00 PM)",
+    label: "Morning (10:00 AM – 1:00 PM)",
+  },
+  {
+    value: "Afternoon (1:00 PM - 5:00 PM)",
+    label: "Afternoon (1:00 PM – 5:00 PM)",
+  },
+  {
+    value: "Evening (5:00 PM - 8:00 PM)",
+    label: "Evening (5:00 PM – 8:00 PM)",
+  },
+];
 ---
 
 <div
@@ -64,9 +79,9 @@ const serviceOptions: MultiSelectOption[] = [
     <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold"
       >Direct Salon Inquiries</span
     >
-    <h3 class="font-serif text-3xl font-bold text-lb-gray-dark mt-2 mb-3">
+    <h2 class="font-serif text-3xl font-bold text-lb-gray-dark mt-2 mb-3">
       Reserve Your Treatment Suite
-    </h3>
+    </h2>
     <p class="text-sm text-lb-gray font-light">
       Select your preferred services and appointment timing. Our salon concierge
       will reach out within 2 hours to confirm your suite.
@@ -83,6 +98,7 @@ const serviceOptions: MultiSelectOption[] = [
           id="name"
           name="name"
           required
+          autocomplete="name"
           placeholder="e.g. Ananya Rao"
         />
       </div>
@@ -95,6 +111,7 @@ const serviceOptions: MultiSelectOption[] = [
           id="phone"
           name="phone"
           required
+          autocomplete="tel"
           placeholder="+91 98765 43210"
         />
       </div>
@@ -108,13 +125,14 @@ const serviceOptions: MultiSelectOption[] = [
           type="email"
           id="email"
           name="email"
+          autocomplete="email"
           placeholder="ananya@example.com"
         />
       </div>
 
       <!-- Service Selection (Custom MultiSelect) -->
       <div>
-        <Label for="service">Services Interested In *</Label>
+        <Label for="service-trigger">Services Interested In *</Label>
         <MultiSelect
           id="service"
           name="service"
@@ -128,7 +146,7 @@ const serviceOptions: MultiSelectOption[] = [
     <!-- Preferred Date & Time -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div>
-        <Label for="date">Preferred Date *</Label>
+        <Label for="date-trigger">Preferred Date *</Label>
         <DatePicker
           id="date"
           name="date"
@@ -138,19 +156,14 @@ const serviceOptions: MultiSelectOption[] = [
       </div>
 
       <div>
-        <Label for="time">Preferred Time Slot *</Label>
-        <Select id="time" name="time" required={true}>
-          <option value="" disabled selected>Select time slot...</option>
-          <option value="Morning (10:00 AM - 1:00 PM)"
-            >Morning (10:00 AM – 1:00 PM)</option
-          >
-          <option value="Afternoon (1:00 PM - 5:00 PM)"
-            >Afternoon (1:00 PM – 5:00 PM)</option
-          >
-          <option value="Evening (5:00 PM - 8:00 PM)"
-            >Evening (5:00 PM – 8:00 PM)</option
-          >
-        </Select>
+        <Label for="time-trigger">Preferred Time Slot *</Label>
+        <Select
+          id="time"
+          name="time"
+          placeholder="Select time slot..."
+          options={timeSlotOptions}
+          required={true}
+        />
       </div>
     </div>
 
@@ -292,7 +305,7 @@ const serviceOptions: MultiSelectOption[] = [
           "Please select your preferred appointment time slot.",
         );
       }
-      document.getElementById("time")?.focus();
+      document.getElementById("time-trigger")?.focus();
       return;
     }
 

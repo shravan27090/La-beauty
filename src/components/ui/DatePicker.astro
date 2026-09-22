@@ -14,6 +14,21 @@ const {
   required = false,
   class: className = "",
 } = Astro.props;
+
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 ---
 
 <div
@@ -21,7 +36,7 @@ const {
   id={`${id}-wrapper`}
 >
   <!-- Hidden input for standard form submission -->
-  <input type="hidden" id={id} name={name} value="" required={required} />
+  <input type="hidden" id={`${id}-input`} name={name} value="" required={required} />
 
   <!-- Popover Trigger Button (Matches shadcn Popover Trigger) -->
   <button
@@ -31,50 +46,16 @@ const {
     aria-expanded="false"
     aria-haspopup="dialog"
   >
-    <div class="flex items-center gap-2.5 truncate">
-      <svg
-        class="w-4 h-4 text-lb-gray shrink-0 opacity-70"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-      >
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-        <line x1="16" y1="2" x2="16" y2="6"></line>
-        <line x1="8" y1="2" x2="8" y2="6"></line>
-        <line x1="3" y1="10" x2="21" y2="10"></line>
-      </svg>
+    <div class="flex items-center truncate max-w-[calc(100%-28px)]">
       <span
         id={`${id}-display`}
-        class="text-sm text-lb-gray-light/80 select-none"
+        class="text-sm text-lb-gray-light/80 select-none truncate font-sans"
       >
         {placeholder}
       </span>
     </div>
 
-    <div class="flex items-center gap-1.5 shrink-0 ml-2">
-      <!-- Clear button (hidden by default) -->
-      <span
-        id={`${id}-clear`}
-        role="button"
-        tabindex="0"
-        title="Clear date"
-        class="hidden p-1 rounded-full text-lb-gray hover:text-lb-gray-dark hover:bg-lb-gray/10 transition-colors cursor-pointer"
-      >
-        <svg
-          class="w-3.5 h-3.5"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </span>
-
+    <div class="flex items-center shrink-0 ml-2">
       <svg
         class="w-4 h-4 text-lb-gray opacity-50 transition-transform duration-200"
         id={`${id}-chevron`}
@@ -96,14 +77,14 @@ const {
     role="dialog"
     aria-label="Appointment Calendar"
   >
-    <!-- Calendar Navigation & Dropdowns -->
-    <div class="flex items-center justify-between gap-1 mb-3">
+    <!-- Calendar Navigation & Month/Year Selectors (shadcn Select dropdown style) -->
+    <div class="relative z-50 flex items-center justify-between gap-1 mb-3">
       <!-- Prev Month Button -->
       <button
         type="button"
         id={`${id}-prev-month`}
         aria-label="Previous month"
-        class="h-8 w-8 rounded-lg border border-[#ebebdf] bg-white hover:bg-[#f6f6ee] text-lb-gray-dark flex items-center justify-center transition-colors cursor-pointer shadow-2xs"
+        class="h-8 w-8 rounded-lg border border-[#ebebdf] bg-white hover:bg-[#f6f6ee] text-lb-gray-dark flex items-center justify-center transition-colors cursor-pointer shadow-2xs shrink-0"
       >
         <svg
           class="w-4 h-4"
@@ -119,32 +100,94 @@ const {
         </svg>
       </button>
 
-      <!-- Month & Year Selectors (captionLayout="dropdown" style) -->
+      <!-- Month & Year Selectors -->
       <div class="flex items-center gap-1.5">
-        <select
-          id={`${id}-month-select`}
-          class="h-8 px-2 py-0.5 text-xs font-semibold rounded-lg border border-[#ebebdf] bg-[#fafaf6] text-lb-gray-dark hover:border-lb-gray/70 focus:outline-none cursor-pointer"
-        >
-          <option value="0">January</option>
-          <option value="1">February</option>
-          <option value="2">March</option>
-          <option value="3">April</option>
-          <option value="4">May</option>
-          <option value="5">June</option>
-          <option value="6">July</option>
-          <option value="7">August</option>
-          <option value="8">September</option>
-          <option value="9">October</option>
-          <option value="10">November</option>
-          <option value="11">December</option>
-        </select>
+        <!-- Month Dropdown -->
+        <div class="relative z-50" id={`${id}-month-dropdown-wrapper`}>
+          <button
+            type="button"
+            id={`${id}-month-btn`}
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-label="Select month"
+            class="h-8 px-2.5 py-1 text-xs font-semibold rounded-lg border border-[#ebebdf] bg-[#fafaf6] hover:bg-[#f6f6ee] text-lb-gray-dark flex items-center gap-1 cursor-pointer transition-colors shadow-2xs focus:outline-none focus:ring-1 focus:ring-lb-gray-dark"
+          >
+            <span id={`${id}-month-label`}>January</span>
+            <svg
+              class="w-3 h-3 text-lb-gray opacity-60 transition-transform duration-200 shrink-0"
+              id={`${id}-month-chevron`}
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
 
-        <select
-          id={`${id}-year-select`}
-          class="h-8 px-2 py-0.5 text-xs font-semibold rounded-lg border border-[#ebebdf] bg-[#fafaf6] text-lb-gray-dark hover:border-lb-gray/70 focus:outline-none cursor-pointer font-number"
-        >
-          <!-- Filled dynamically via JS -->
-        </select>
+          <!-- Month Popover Menu -->
+          <div
+            id={`${id}-month-popover`}
+            class="hidden absolute left-0 top-full mt-1.5 w-36 max-h-56 overflow-y-auto rounded-xl border border-[#ebebdf] bg-white shadow-2xl p-1 z-[9999] font-sans"
+            style="background-color: #ffffff !important;"
+            role="listbox"
+          >
+            {
+              monthNames.map((name, idx) => (
+                <div
+                  class="cal-month-opt flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs text-lb-gray-dark hover:bg-[#f6f6ee] transition-colors cursor-pointer select-none font-sans"
+                  data-month={idx}
+                  role="option"
+                >
+                  <span class="truncate">{name}</span>
+                  <svg
+                    class="cal-month-check w-3 h-3 text-lb-gray-dark shrink-0 ml-1.5 hidden"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Year Dropdown -->
+        <div class="relative z-50" id={`${id}-year-dropdown-wrapper`}>
+          <button
+            type="button"
+            id={`${id}-year-btn`}
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-label="Select year"
+            class="h-8 px-2.5 py-1 text-xs font-semibold rounded-lg border border-[#ebebdf] bg-[#fafaf6] hover:bg-[#f6f6ee] text-lb-gray-dark flex items-center gap-1 cursor-pointer font-number transition-colors shadow-2xs focus:outline-none focus:ring-1 focus:ring-lb-gray-dark"
+          >
+            <span id={`${id}-year-label`}>2026</span>
+            <svg
+              class="w-3 h-3 text-lb-gray opacity-60 transition-transform duration-200 shrink-0"
+              id={`${id}-year-chevron`}
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+
+          <!-- Year Popover Menu -->
+          <div
+            id={`${id}-year-popover`}
+            class="hidden absolute right-0 top-full mt-1.5 w-24 max-h-56 overflow-y-auto rounded-xl border border-[#ebebdf] bg-white shadow-2xl p-1 z-[9999] font-sans font-number"
+            style="background-color: #ffffff !important;"
+            role="listbox"
+          >
+            <!-- Generated dynamically via JS -->
+          </div>
+        </div>
       </div>
 
       <!-- Next Month Button -->
@@ -152,7 +195,7 @@ const {
         type="button"
         id={`${id}-next-month`}
         aria-label="Next month"
-        class="h-8 w-8 rounded-lg border border-[#ebebdf] bg-white hover:bg-[#f6f6ee] text-lb-gray-dark flex items-center justify-center transition-colors cursor-pointer shadow-2xs"
+        class="h-8 w-8 rounded-lg border border-[#ebebdf] bg-white hover:bg-[#f6f6ee] text-lb-gray-dark flex items-center justify-center transition-colors cursor-pointer shadow-2xs shrink-0"
       >
         <svg
           class="w-4 h-4"
@@ -193,13 +236,13 @@ const {
     </div>
 
     <!-- Days Grid -->
-    <div id={`${id}-days-grid`} class="grid grid-cols-7 gap-1">
-      <!-- Days populated dynamically by JS -->
+    <div id={`${id}-days-grid`} class="grid grid-cols-7 gap-1 relative z-0">
+      <!-- Generated dynamically via JS -->
     </div>
 
-    <!-- Quick Footer: Today shortcut & Close -->
+    <!-- Calendar Footer (shadcn quick actions) -->
     <div
-      class="flex items-center justify-between pt-3 mt-3 border-t border-[#f2f2eb] text-xs"
+      class="mt-3 pt-2.5 border-t border-[#f0f0e6] flex items-center justify-between text-xs"
     >
       <button
         type="button"
@@ -208,19 +251,23 @@ const {
       >
         Today
       </button>
-      <span class="text-[10px] text-lb-gray-light">
-        Salon Open: 10am – 8pm
-      </span>
+
+      <button
+        type="button"
+        id={`${id}-clear`}
+        class="text-xs font-semibold text-rose-500 hover:text-rose-700 transition-colors cursor-pointer"
+      >
+        Clear
+      </button>
     </div>
   </div>
 </div>
 
 <style>
-  /* Day button styling */
   :global(.cal-day-btn) {
-    height: 34px;
-    width: 100%;
     display: flex;
+    height: 2.25rem;
+    width: 2.25rem;
     align-items: center;
     justify-content: center;
     border-radius: 0.625rem;
@@ -276,22 +323,47 @@ const {
     background-color: #f0f0e6;
     color: #2c2a2d;
   }
+
+  :global([id$="-month-popover"], [id$="-year-popover"]) {
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+    z-index: 99999 !important;
+  }
+
+  :global(.cal-month-opt[aria-selected="true"], .cal-year-opt[aria-selected="true"]) {
+    background-color: #f2f2ea !important;
+    font-weight: 600;
+  }
+  :global(.cal-month-opt[aria-selected="true"] .cal-month-check, .cal-year-opt[aria-selected="true"] .cal-year-check) {
+    display: block !important;
+  }
 </style>
 
 <script define:vars={{ id, placeholder }}>
   const wrapper = document.getElementById(`${id}-wrapper`);
   const trigger = document.getElementById(`${id}-trigger`);
   const popover = document.getElementById(`${id}-popover`);
-  const hiddenInput = document.getElementById(id);
+  const hiddenInput = document.getElementById(`${id}-input`) || document.getElementById(id);
   const displayEl = document.getElementById(`${id}-display`);
-  const clearBtn = document.getElementById(`${id}-clear`);
   const chevron = document.getElementById(`${id}-chevron`);
   const prevBtn = document.getElementById(`${id}-prev-month`);
   const nextBtn = document.getElementById(`${id}-next-month`);
-  const monthSelect = document.getElementById(`${id}-month-select`);
-  const yearSelect = document.getElementById(`${id}-year-select`);
   const daysGrid = document.getElementById(`${id}-days-grid`);
   const todayBtn = document.getElementById(`${id}-today-btn`);
+  const clearBtn = document.getElementById(`${id}-clear`);
+
+  const monthBtn = document.getElementById(`${id}-month-btn`);
+  const monthLabel = document.getElementById(`${id}-month-label`);
+  const monthChevron = document.getElementById(`${id}-month-chevron`);
+  const monthPopover = document.getElementById(`${id}-month-popover`);
+  const monthWrapper = document.getElementById(`${id}-month-dropdown-wrapper`);
+  const monthOptions = Array.from(monthPopover?.querySelectorAll(".cal-month-opt") || []);
+
+  const yearBtn = document.getElementById(`${id}-year-btn`);
+  const yearLabel = document.getElementById(`${id}-year-label`);
+  const yearChevron = document.getElementById(`${id}-year-chevron`);
+  const yearPopover = document.getElementById(`${id}-year-popover`);
+  const yearWrapper = document.getElementById(`${id}-year-dropdown-wrapper`);
 
   // State
   const today = new Date();
@@ -301,15 +373,54 @@ const {
   let currentViewMonth = today.getMonth();
   let selectedDate = null;
 
-  // Initialize year dropdown (current year up to current + 3 years)
+  function toggleMonthPopover(show) {
+    if (show) {
+      toggleYearPopover(false);
+      monthPopover?.classList.remove("hidden");
+      monthBtn?.setAttribute("aria-expanded", "true");
+      monthChevron?.classList.add("rotate-180");
+    } else {
+      monthPopover?.classList.add("hidden");
+      monthBtn?.setAttribute("aria-expanded", "false");
+      monthChevron?.classList.remove("rotate-180");
+    }
+  }
+
+  function toggleYearPopover(show) {
+    if (show) {
+      toggleMonthPopover(false);
+      yearPopover?.classList.remove("hidden");
+      yearBtn?.setAttribute("aria-expanded", "true");
+      yearChevron?.classList.add("rotate-180");
+    } else {
+      yearPopover?.classList.add("hidden");
+      yearBtn?.setAttribute("aria-expanded", "false");
+      yearChevron?.classList.remove("rotate-180");
+    }
+  }
+
   function initYearSelect() {
-    yearSelect.innerHTML = "";
+    if (!yearPopover) return;
+    yearPopover.innerHTML = "";
     const startYear = today.getFullYear();
     for (let y = startYear; y <= startYear + 3; y++) {
-      const opt = document.createElement("option");
-      opt.value = y.toString();
-      opt.textContent = y.toString();
-      yearSelect.appendChild(opt);
+      const opt = document.createElement("div");
+      opt.className = "cal-year-opt flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs text-lb-gray-dark hover:bg-[#f6f6ee] transition-colors cursor-pointer select-none font-sans font-number";
+      opt.dataset.year = y.toString();
+      opt.setAttribute("role", "option");
+      opt.innerHTML = `
+        <span>${y}</span>
+        <svg class="cal-year-check w-3 h-3 text-lb-gray-dark shrink-0 ml-1.5 hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+      `;
+      opt.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentViewYear = y;
+        toggleYearPopover(false);
+        renderCalendar();
+      });
+      yearPopover.appendChild(opt);
     }
   }
 
@@ -331,15 +442,44 @@ const {
   }
 
   function renderCalendar() {
-    monthSelect.value = currentViewMonth.toString();
-    yearSelect.value = currentViewYear.toString();
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    if (monthLabel) {
+      monthLabel.textContent = monthNames[currentViewMonth];
+    }
+    if (yearLabel) {
+      yearLabel.textContent = currentViewYear.toString();
+    }
+
+    monthOptions.forEach((opt) => {
+      const isSelected = parseInt(opt.dataset.month, 10) === currentViewMonth;
+      opt.setAttribute("aria-selected", isSelected ? "true" : "false");
+      const icon = opt.querySelector(".cal-month-check");
+      if (icon) {
+        icon.style.display = isSelected ? "block" : "none";
+      }
+    });
+
+    const yearOptions = Array.from(yearPopover?.querySelectorAll(".cal-year-opt") || []);
+    yearOptions.forEach((opt) => {
+      const isSelected = parseInt(opt.dataset.year, 10) === currentViewYear;
+      opt.setAttribute("aria-selected", isSelected ? "true" : "false");
+      const icon = opt.querySelector(".cal-year-check");
+      if (icon) {
+        icon.style.display = isSelected ? "block" : "none";
+      }
+    });
+
     daysGrid.innerHTML = "";
 
     const firstDayIndex = new Date(
       currentViewYear,
       currentViewMonth,
       1,
-    ).getDay(); // 0 (Sun) - 6 (Sat)
+    ).getDay();
     const daysInMonth = new Date(
       currentViewYear,
       currentViewMonth + 1,
@@ -370,17 +510,14 @@ const {
       btn.className = "cal-day-btn";
       btn.textContent = d.toString();
 
-      // Check if past date
       if (dateObj < today) {
         btn.classList.add("is-disabled");
         btn.setAttribute("aria-disabled", "true");
       } else {
-        // Today check
         if (dateObj.getTime() === today.getTime()) {
           btn.classList.add("is-today");
         }
 
-        // Selected check
         if (selectedDate && dateObj.getTime() === selectedDate.getTime()) {
           btn.classList.add("is-selected");
         }
@@ -398,14 +535,16 @@ const {
   function selectDate(date) {
     selectedDate = date;
     const isoString = formatISODate(date);
-    hiddenInput.value = isoString;
-    hiddenInput.dispatchEvent(new Event("change", { bubbles: true }));
+    if (hiddenInput) {
+      hiddenInput.value = isoString;
+      hiddenInput.dispatchEvent(new Event("change", { bubbles: true }));
+    }
 
-    // Update display
-    displayEl.textContent = formatDate(date);
-    displayEl.classList.remove("text-lb-gray-light/80");
-    displayEl.classList.add("text-lb-gray-dark", "font-medium");
-    clearBtn.classList.remove("hidden");
+    if (displayEl) {
+      displayEl.textContent = formatDate(date);
+      displayEl.classList.remove("text-lb-gray-light/80");
+      displayEl.classList.add("text-lb-gray-dark", "font-medium");
+    }
 
     renderCalendar();
     togglePopover(false);
@@ -413,44 +552,61 @@ const {
 
   function clearDate() {
     selectedDate = null;
-    hiddenInput.value = "";
-    hiddenInput.dispatchEvent(new Event("change", { bubbles: true }));
-    displayEl.textContent = placeholder;
-    displayEl.classList.add("text-lb-gray-light/80");
-    displayEl.classList.remove("text-lb-gray-dark", "font-medium");
-    clearBtn.classList.add("hidden");
+    if (hiddenInput) {
+      hiddenInput.value = "";
+      hiddenInput.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    if (displayEl) {
+      displayEl.textContent = placeholder;
+      displayEl.classList.remove("text-lb-gray-dark", "font-medium");
+      displayEl.classList.add("text-lb-gray-light/80");
+    }
     renderCalendar();
   }
 
   function togglePopover(show) {
     if (show) {
-      popover.classList.remove("hidden");
-      trigger.setAttribute("aria-expanded", "true");
-      chevron.classList.add("rotate-180");
+      popover?.classList.remove("hidden");
+      trigger?.setAttribute("aria-expanded", "true");
+      chevron?.classList.add("rotate-180");
       renderCalendar();
     } else {
-      popover.classList.add("hidden");
-      trigger.setAttribute("aria-expanded", "false");
-      chevron.classList.remove("rotate-180");
+      popover?.classList.add("hidden");
+      trigger?.setAttribute("aria-expanded", "false");
+      chevron?.classList.remove("rotate-180");
+      toggleMonthPopover(false);
+      toggleYearPopover(false);
     }
   }
 
   // Event Listeners
-  trigger.addEventListener("click", (e) => {
-    if (e.target.closest(`#${id}-clear`)) {
-      clearDate();
-      return;
-    }
-    const isHidden = popover.classList.contains("hidden");
+  trigger?.addEventListener("click", () => {
+    const isHidden = popover?.classList.contains("hidden");
     togglePopover(isHidden);
   });
 
-  clearBtn.addEventListener("click", (e) => {
+  monthBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
-    clearDate();
+    const isHidden = monthPopover?.classList.contains("hidden");
+    toggleMonthPopover(isHidden);
   });
 
-  prevBtn.addEventListener("click", (e) => {
+  yearBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isHidden = yearPopover?.classList.contains("hidden");
+    toggleYearPopover(isHidden);
+  });
+
+  monthOptions.forEach((opt) => {
+    opt.addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentViewMonth = parseInt(opt.dataset.month, 10);
+      toggleMonthPopover(false);
+      renderCalendar();
+    });
+  });
+
+  prevBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
     currentViewMonth--;
     if (currentViewMonth < 0) {
@@ -460,7 +616,7 @@ const {
     renderCalendar();
   });
 
-  nextBtn.addEventListener("click", (e) => {
+  nextBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
     currentViewMonth++;
     if (currentViewMonth > 11) {
@@ -470,31 +626,36 @@ const {
     renderCalendar();
   });
 
-  monthSelect.addEventListener("change", (e) => {
-    currentViewMonth = parseInt(e.target.value, 10);
-    renderCalendar();
-  });
-
-  yearSelect.addEventListener("change", (e) => {
-    currentViewYear = parseInt(e.target.value, 10);
-    renderCalendar();
-  });
-
-  todayBtn.addEventListener("click", (e) => {
+  todayBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
+    currentViewMonth = today.getMonth();
+    currentViewYear = today.getFullYear();
     selectDate(new Date(today));
+  });
+
+  clearBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    clearDate();
+    togglePopover(false);
   });
 
   // Close when clicking outside
   document.addEventListener("click", (e) => {
-    if (!wrapper.contains(e.target)) {
+    if (!wrapper?.contains(e.target)) {
       togglePopover(false);
+    } else {
+      if (monthWrapper && !monthWrapper.contains(e.target)) {
+        toggleMonthPopover(false);
+      }
+      if (yearWrapper && !yearWrapper.contains(e.target)) {
+        toggleYearPopover(false);
+      }
     }
   });
 
   // Close on Escape
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !popover.classList.contains("hidden")) {
+    if (e.key === "Escape" && popover && !popover.classList.contains("hidden")) {
       togglePopover(false);
     }
   });

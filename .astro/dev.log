@@ -269,3 +269,460 @@
 {"message":"[200] / 4ms","label":null,"level":"info"}
 {"message":"[200] / 22ms","label":null,"level":"info"}
 {"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 16ms","label":null,"level":"info"}
+{"message":"[200] /services 43ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 30ms","label":null,"level":"info"}
+{"message":"[200] / 30ms","label":null,"level":"info"}
+{"message":"src/components/ImageGallery.astro","label":"watch","level":"info"}
+{"message":"[200] / 26ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 71ms","label":null,"level":"info"}
+{"message":"[200] / 72ms","label":null,"level":"info"}
+{"message":"[200] /services 13ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 25ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] / 20ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] / 14ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 26ms","label":null,"level":"info"}
+{"message":"[200] / 26ms","label":null,"level":"info"}
+{"message":"[200] / 16ms","label":null,"level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"[404] /robots.txt 37ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 79ms","label":null,"level":"info"}
+{"message":"[200] /services 38ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] /services 13ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 5ms","label":null,"level":"info"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] /services 6ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 2ms","label":null,"level":"info"}
+{"message":"[200] /services 6ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 5ms","label":null,"level":"info"}
+{"message":"[200] /services 5ms","label":null,"level":"info"}
+{"message":"[200] /about 31ms","label":null,"level":"info"}
+{"message":"[200] /contact 32ms","label":null,"level":"info"}
+{"message":"[200] /about 3ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 3ms","label":null,"level":"info"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 5ms","label":null,"level":"info"}
+{"message":"[200] /services 11ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] /services 31ms","label":null,"level":"info"}
+{"message":"[200] / 34ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] /services 27ms","label":null,"level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 26ms","label":null,"level":"info"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 5ms","label":null,"level":"info"}
+{"message":"[200] /services 9ms","label":null,"level":"info"}
+{"message":"[200] /about 26ms","label":null,"level":"info"}
+{"message":"[200] /contact 30ms","label":null,"level":"info"}
+{"message":"[200] /about 4ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 3ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 2ms","label":null,"level":"info"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 29ms","label":null,"level":"info"}
+{"message":"[200] / 29ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"src/components/ImageGallery.astro","label":"watch","level":"info"}
+{"message":"[200] / 22ms","label":null,"level":"info"}
+{"message":"[200] / 22ms","label":null,"level":"info"}
+{"message":"src/components/ImageGallery.astro","label":"watch","level":"info"}
+{"message":"[200] / 27ms","label":null,"level":"info"}
+{"message":"[200] / 27ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 21ms","label":null,"level":"info"}
+{"message":"[200] / 21ms","label":null,"level":"info"}
+{"message":"[200] /services 31ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] /services 20ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 35ms","label":null,"level":"info"}
+{"message":"[200] /contact 20ms","label":null,"level":"info"}
+{"message":"[200] /services 8ms","label":null,"level":"info"}
+{"message":"[200] /contact 17ms","label":null,"level":"info"}
+{"message":"[200] /services 13ms","label":null,"level":"info"}
+{"message":"src/pages/services.astro","label":"watch","level":"info"}
+{"message":"[200] /services 21ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"src/pages/services.astro","label":"watch","level":"info"}
+{"message":"[200] /services 19ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"src/pages/services.astro","label":"watch","level":"info"}
+{"message":"[200] /services 25ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] /services 28ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/MultiSelect.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /services 21ms","label":null,"level":"info"}
+{"message":"[200] / 58ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/MultiSelect.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /services 19ms","label":null,"level":"info"}
+{"message":"[200] / 29ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/MultiSelect.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /services 22ms","label":null,"level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/DatePicker.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /services 35ms","label":null,"level":"info"}
+{"message":"[200] / 39ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/DatePicker.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /services 20ms","label":null,"level":"info"}
+{"message":"[200] / 31ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/DatePicker.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /services 23ms","label":null,"level":"info"}
+{"message":"[200] / 29ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] /services 31ms","label":null,"level":"info"}
+{"message":"[200] / 81ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 31ms","label":null,"level":"info"}
+{"message":"[200] /services 70ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 51ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 30ms","label":null,"level":"info"}
+{"message":"[404] /facial-extractpics.webp 61ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 4ms","label":null,"level":"info"}
+{"message":"[404] /facial-extractpics.webp 2ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 28ms","label":null,"level":"inf{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[404] /10-1-extractpics.webp 41ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 46ms","label":null,"level":"info"}
+{"message":"[200] /about 35ms","label":null,"level":"info"}
+{"message":"[200] / 13ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"[200] /services 6ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] /services 18ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 21ms","label":null,"level":"info"}
+{"message":"[200] /services 7ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 5ms","label":null,"level":"info"}
+{"message":"[200] /about 28ms","label":null,"level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"[200] /services 7ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 7ms","label":null,"level":"info"}
+{"message":"[200] /about 5ms","label":null,"level":"info"}
+{"message":"[200] /contact 23ms","label":null,"level":"info"}
+{"message":"[200] /about 3ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 13ms","label":null,"level":"info"}
+{"message":"[200] / 27ms","label":null,"level":"info"}
+{"message":"[200] / 19ms","label":null,"level":"info"}
+{"message":"[200] /contact 16ms","label":null,"level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] /services 18ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 7ms","label":null,"level":"info"}
+{"message":"[200] /about 22ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 5ms","label":null,"level":"info"}
+{"message":"[200] /services 6ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 3ms","label":null,"level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 17ms","label":null,"level":"info"}
+{"message":"[200] /services 7ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 18ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 18ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 97ms","label":null,"level":"info"}
+{"message":"[200] /about 8ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] /about 21ms","label":null,"level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] /about 22ms","label":null,"level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] /services 29ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 25ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] /portfolio 17ms","label":null,"level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"src/pages/services.astro","label":"watch","level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 11ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /services 23ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 42ms","label":null,"level":"info"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] /services 7ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 6ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] /portfolio 36ms","label":null,"level":"info"}
+{"message":"[200] / 33ms","label":null,"level":"info"}
+{"message":"[200] /services 27ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 90ms","label":null,"level":"info"}
+{"message":"[200] /services 90ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] /services 28ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /services 20ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 5ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 5ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 11ms","label":null,"level":"info"}
+{"message":"[200] /services 54ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 10ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 22ms","label":null,"level":"info"}
+{"message":"[200] /services 69ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] /services 12ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 5ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] /services 16ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 5ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 19ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 2ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 2ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /services 13ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at renderFrameworkComponent (eval at runInlinedModule (file:///Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9), <anonymous>:82:11)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"Unable to render Button because it is undefined!\nDid you forget to import the component or is it possible there is a typo?\n  Stack trace:\n    at /Users/shravanboloor/La beauty/eval at runInlinedModule (file:/Users/shravanboloor/La%20beauty/node_modules/vite/dist/node/module-runner.js:809:9\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] /services 30ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] /services 55ms","label":null,"level":"info"}
+{"message":"[200] / 25ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] /services 25ms","label":null,"level":"info"}
+{"message":"[200] / 35ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 54ms","label":null,"level":"info"}
+{"message":"[200] / 54ms","label":null,"level":"info"}
+{"message":"[200] /services 22ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] /services 123ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] /services 20ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] /services 37ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"[200] /services 63ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"[200] /services 141ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] /services 28ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 11ms","label":null,"level":"info"}
+{"message":"[200] /services 33ms","label":null,"level":"info"}
+{"message":"[200] / 15ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 12ms","label":null,"level":"info"}
+{"message":"[200] /services 37ms","label":null,"level":"info"}
+{"message":"[200] / 16ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 46ms","label":null,"level":"info"}
+{"message":"[200] / 46ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 12ms","label":null,"level":"info"}
+{"message":"[200] / 12ms","label":null,"level":"info"}
+{"message":"src/components/ServiceCard.astro","label":"watch","level":"info"}
+{"message":"[200] / 31ms","label":null,"level":"info"}
+{"message":"[200] / 31ms","label":null,"level":"info"}
+{"message":"src/components/PricingTable.astro","label":"watch","level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /services 20ms","label":null,"level":"info"}
+{"message":"src/pages/services.astro","label":"watch","level":"info"}
+{"message":"[200] / 16ms","label":null,"level":"info"}
+{"message":"[200] /services 83ms","label":null,"level":"info"}
+{"message":"src/pages/services.astro","label":"watch","level":"info"}
+{"message":"[200] /services 25ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 26ms","label":null,"level":"info"}
+{"message":"[200] /about 21ms","label":null,"level":"info"}
+{"message":"src/components/ImageGallery.astro","label":"watch","level":"info"}
+{"message":"[200] /about 4ms","label":null,"level":"info"}
+{"message":"[200] / 24ms","label":null,"level":"info"}
+{"message":"src/components/ImageGallery.astro","label":"watch","level":"info"}
+{"message":"[200] /about 5ms","label":null,"level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] /contact 36ms","label":null,"level":"info"}
+{"message":"[200] /contact 20ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"[200] /contact 23ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/MultiSelect.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] / 44ms","label":null,"level":"info"}
+{"message":"[200] /contact 39ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/DatePicker.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] / 45ms","label":null,"level":"info"}
+{"message":"[200] /contact 42ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 24ms","label":null,"level":"info"}
+{"message":"[200] /contact 59ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 31ms","label":null,"level":"info"}
+{"message":"[200] / 55ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 26ms","label":null,"level":"info"}
+{"message":"[200] / 71ms","label":null,"level":"info"}
+{"message":"[200] /contact 9ms","label":null,"level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"[200] /contact 11ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/DatePicker.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /contact 37ms","label":null,"level":"info"}
+{"message":"[200] / 36ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 32ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] /contact 23ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/DatePicker.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] / 281ms","label":null,"level":"info"}
+{"message":"[200] /contact 358ms","label":null,"level":"info"}
+{"message":"[200] /about 56ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 30ms","label":null,"level":"info"}
+{"message":"[200] /services 38ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}

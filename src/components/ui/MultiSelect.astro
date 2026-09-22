@@ -31,7 +31,7 @@ const {
   id={`${id}-wrapper`}
 >
   <!-- Hidden input for standard form submission -->
-  <input type="hidden" id={id} name={name} value="" required={required} />
+  <input type="hidden" id={`${id}-input`} name={name} value="" required={required} />
 
   <!-- Trigger Button -->
   <button
@@ -43,39 +43,17 @@ const {
   >
     <div
       id={`${id}-selected-container`}
-      class="flex flex-wrap items-center gap-1.5 max-w-[calc(100%-48px)]"
+      class="flex items-center truncate max-w-[calc(100%-28px)]"
     >
       <span
         id={`${id}-placeholder`}
-        class="text-sm text-lb-gray-light/80 select-none"
+        class="text-sm text-lb-gray-light/80 select-none font-sans"
       >
         {placeholder}
       </span>
     </div>
 
-    <div class="flex items-center gap-1.5 shrink-0 ml-2">
-      <!-- Clear All Button -->
-      <span
-        id={`${id}-clear-btn`}
-        role="button"
-        tabindex="0"
-        title="Clear all"
-        class="hidden rounded-full p-1 text-lb-gray hover:text-lb-gray-dark hover:bg-lb-gray/10 transition-colors cursor-pointer"
-      >
-        <svg
-          class="w-3.5 h-3.5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </span>
-
+    <div class="flex items-center shrink-0 ml-2">
       <!-- Chevron -->
       <svg
         class="w-4 h-4 text-lb-gray shrink-0 opacity-60 transition-transform duration-200"
@@ -116,6 +94,7 @@ const {
         <Input
           type="text"
           id={`${id}-search`}
+          aria-label="Search treatments"
           placeholder="Search treatments..."
           class="w-full h-9 pl-9 pr-3 py-2 text-xs rounded-lg border border-[#ebebdf] bg-white text-lb-gray-dark placeholder:text-lb-gray-light focus:outline-none focus-visible:outline-none focus:border-lb-gray-dark font-sans"
         />
@@ -225,10 +204,9 @@ const {
   const wrapper = document.getElementById(`${id}-wrapper`);
   const trigger = document.getElementById(`${id}-trigger`);
   const popover = document.getElementById(`${id}-popover`);
-  const hiddenInput = document.getElementById(id);
+  const hiddenInput = document.getElementById(`${id}-input`) || document.getElementById(id);
   const selectedContainer = document.getElementById(`${id}-selected-container`);
   const placeholderEl = document.getElementById(`${id}-placeholder`);
-  const clearBtn = document.getElementById(`${id}-clear-btn`);
   const chevron = document.getElementById(`${id}-chevron`);
   const searchInput = document.getElementById(`${id}-search`);
   const toggleAllBtn = document.getElementById(`${id}-toggle-all`);
@@ -246,19 +224,12 @@ const {
     // Update hidden input
     hiddenInput.value = selectedValues.join(", ");
 
-    // Update clear button visibility
-    if (selectedValues.length > 0) {
-      clearBtn.classList.remove("hidden");
-    } else {
-      clearBtn.classList.add("hidden");
-    }
-
     // Update counter
     countText.textContent = `${selectedValues.length} selected`;
     toggleAllBtn.textContent =
       selectedValues.length === options.length ? "Deselect All" : "Select All";
 
-    // Clear chips container except placeholder
+    // Clear display container
     selectedContainer.innerHTML = "";
 
     if (selectedValues.length === 0) {
@@ -266,13 +237,18 @@ const {
       p.className = "text-sm text-lb-gray-light/80 select-none font-sans";
       p.textContent = placeholder;
       selectedContainer.appendChild(p);
+    } else if (selectedValues.length === 1) {
+      const opt = options.find((o) => o.dataset.value === selectedValues[0]);
+      const label = opt ? (opt.dataset.label || opt.textContent.trim()) : selectedValues[0];
+      const textEl = document.createElement("span");
+      textEl.className = "text-sm text-lb-gray-dark font-sans select-none truncate font-medium";
+      textEl.textContent = label;
+      selectedContainer.appendChild(textEl);
     } else {
-      // Show simple count badge as requested (e.g. "3 selected")
-      const countBadge = document.createElement("span");
-      countBadge.className =
-        "inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#ecece2] text-lb-gray-dark border border-[#dfdfd5] font-sans";
-      countBadge.textContent = `${selectedValues.length} selected`;
-      selectedContainer.appendChild(countBadge);
+      const textEl = document.createElement("span");
+      textEl.className = "text-sm text-lb-gray-dark font-sans select-none truncate font-medium";
+      textEl.textContent = `${selectedValues.length} services selected`;
+      selectedContainer.appendChild(textEl);
     }
 
     // Update checkboxes in dropdown
@@ -333,23 +309,7 @@ const {
   }
 
   // Trigger click
-  trigger.addEventListener("click", (e) => {
-    // If clicked on a badge remove button, remove it without opening/closing
-    const removeBtn = e.target.closest("[data-remove]");
-    if (removeBtn) {
-      const valToRemove = removeBtn.getAttribute("data-remove");
-      selectedValues = selectedValues.filter((v) => v !== valToRemove);
-      updateDisplay();
-      return;
-    }
-
-    // If clicked on clear all button
-    if (e.target.closest(`#${id}-clear-btn`)) {
-      selectedValues = [];
-      updateDisplay();
-      return;
-    }
-
+  trigger.addEventListener("click", () => {
     const isHidden = popover.classList.contains("hidden");
     toggleDropdown(isHidden);
   });

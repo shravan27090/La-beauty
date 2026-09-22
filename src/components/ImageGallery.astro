@@ -60,7 +60,7 @@ const defaultItems: GalleryItem[] = [
     title: 'Parisian Radiance Enzyme Glow',
     category: 'skin',
     categoryLabel: 'Skin & Laser',
-    image: 'https://images.unsplash.com/photo-1512290900672-1f4142751f08?auto=format&fit=crop&w=1000&q=85',
+    image: '/facial-extractpics.webp',
     description: 'Clinical lymphatic face sculpting massage with marine botanicals for luminous skin.'
   },
   {
@@ -96,35 +96,35 @@ const displayItems = limit ? items.slice(0, limit) : items;
     <div class="flex flex-wrap justify-center gap-2 mb-10">
       <button
         type="button"
-        class="filter-btn active px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-lb-gray text-white shadow-sm"
+        class="filter-btn active px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-lb-gray text-white shadow-sm hover:bg-lb-gray-dark cursor-pointer"
         data-filter="all"
       >
         All Works
       </button>
       <button
         type="button"
-        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray hover:bg-lb-gray hover:text-white border border-[#ebebdf]"
+        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray border border-[#ebebdf] hover:border-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark cursor-pointer"
         data-filter="nail-art"
       >
         Nail Art & Chrome
       </button>
       <button
         type="button"
-        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray hover:bg-lb-gray hover:text-white border border-[#ebebdf]"
+        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray border border-[#ebebdf] hover:border-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark cursor-pointer"
         data-filter="manicure"
       >
         Russian Manicure
       </button>
       <button
         type="button"
-        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray hover:bg-lb-gray hover:text-white border border-[#ebebdf]"
+        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray border border-[#ebebdf] hover:border-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark cursor-pointer"
         data-filter="pedicure"
       >
         Spa Pedicure
       </button>
       <button
         type="button"
-        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray hover:bg-lb-gray hover:text-white border border-[#ebebdf]"
+        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray border border-[#ebebdf] hover:border-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark cursor-pointer"
         data-filter="skin"
       >
         Skin & Aesthetics
@@ -166,9 +166,9 @@ const displayItems = limit ? items.slice(0, limit) : items;
 
           <!-- Bottom Title & Description Overlay -->
           <div class="absolute bottom-0 left-0 right-0 p-5 transform transition-transform duration-300">
-            <h4 class="font-serif text-lg font-bold text-white leading-snug mb-1">
+            <h3 class="font-serif text-lg font-bold text-white leading-snug mb-1">
               {item.title}
-            </h4>
+            </h3>
             <p class="text-xs text-gray-200 line-clamp-2 font-light opacity-90">
               {item.description}
             </p>
@@ -214,9 +214,9 @@ const displayItems = limit ? items.slice(0, limit) : items;
           <span id="lightbox-category" class="text-[11px] font-bold uppercase tracking-widest text-lb-gray block mb-1">
             Category
           </span>
-          <h3 id="lightbox-title" class="font-serif text-2xl font-bold text-lb-gray-dark">
+          <h4 id="lightbox-title" class="font-serif text-2xl font-bold text-lb-gray-dark">
             Title
-          </h3>
+          </h4>
           <p id="lightbox-desc" class="text-sm text-lb-gray mt-1 font-light max-w-xl">
             Description
           </p>
@@ -249,11 +249,39 @@ const displayItems = limit ? items.slice(0, limit) : items;
       const filter = btn.dataset.filter;
 
       filterBtns.forEach((b) => {
-        b.classList.remove('bg-lb-gray', 'text-white');
-        b.classList.add('bg-white', 'text-lb-gray');
+        b.classList.remove(
+          'active',
+          'bg-lb-gray',
+          'text-white',
+          'shadow-sm',
+          'hover:bg-lb-gray-dark',
+        );
+        b.classList.add(
+          'bg-white',
+          'text-lb-gray',
+          'border',
+          'border-[#ebebdf]',
+          'hover:border-lb-gray',
+          'hover:bg-lb-gray/40',
+          'hover:text-lb-gray-dark',
+        );
       });
-      btn.classList.remove('bg-white', 'text-lb-gray');
-      btn.classList.add('bg-lb-gray', 'text-white');
+      btn.classList.remove(
+        'bg-white',
+        'text-lb-gray',
+        'border',
+        'border-[#ebebdf]',
+        'hover:border-lb-gray',
+        'hover:bg-lb-gray/40',
+        'hover:text-lb-gray-dark',
+      );
+      btn.classList.add(
+        'active',
+        'bg-lb-gray',
+        'text-white',
+        'shadow-sm',
+        'hover:bg-lb-gray-dark',
+      );
 
       cards.forEach((card) => {
         const category = card.dataset.category;

@@ -1,115 +1,174 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import PricingTable from '../components/PricingTable.astro';
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import PricingTable from "../components/PricingTable.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+
+const filterCategories = [
+  { key: "manicure", label: "Russian Manicure" },
+  { key: "nail-art", label: "Nail Art & Chrome" },
+  { key: "pedicure", label: "Spa Pedicures" },
+  { key: "laser", label: "Cooling Laser" },
+  { key: "skincare", label: "Facials & Skin" },
+  { key: "waxing", label: "Waxing & Brows" },
+];
 
 const allServices = [
   // Manicures
   {
-    title: 'Russian Precision Dry Manicure',
-    category: 'Manicure & Nails',
-    price: '₹950',
-    duration: '50 mins',
+    title: "Russian Precision Dry Manicure",
+    category: "Manicure & Nails",
+    categoryKey: "manicure",
+    price: "₹950",
+    duration: "50 mins",
     popular: true,
-    description: 'Dry cuticle perfection technique with medical-grade diamond e-file bits. Leaves the nail perimeter immaculate for clean regrowth lasting 3-4 weeks.',
-    image: '/classic-manicure-extractpics.webp',
+    description:
+      "Our signature waterless medical-grade dry cuticle detailing utilizes sterile European diamond e-file bits under high optical magnification. Gently exfoliates stubborn periungual dead skin without chemical soaks or scissors, preparing the nail plate for flawless deep-color adhesion with immaculate regrowth lasting 3 to 4 weeks.",
+    image: "/classic-manicure-extractpics.webp",
   },
   {
-    title: 'European Gel Overlay & Reinforcement',
-    category: 'Manicure & Nails',
-    price: '₹1,200',
-    duration: '60 mins',
+    title: "European Gel Overlay & Reinforcement",
+    category: "Manicure & Nails",
+    categoryKey: "manicure",
+    price: "₹1,200",
+    duration: "60 mins",
     popular: false,
-    description: 'Fortifying natural rubber base gel application that repairs weak, brittle, or peeling natural nails with superior flexural strength.',
-    image: '/nail-services-extractpics.webp',
+    description:
+      "A therapeutic structural reinforcement treatment engineered with flexible European rubber base and self-leveling builder gel. Rebuilds and rebalances the natural nail apex, strengthens thin, brittle, or grooved nail plates, and provides resilient crack-resistant protection that encourages natural length growth.",
+    image: "/nail-services-extractpics.webp",
   },
   {
-    title: 'Sculpted Hard Gel / Acrylic Extensions',
-    category: 'Manicure & Nails',
-    price: '₹2,800',
-    duration: '90 mins',
+    title: "Sculpted Hard Gel / Acrylic Extensions",
+    category: "Manicure & Nails",
+    categoryKey: "manicure",
+    price: "₹2,800",
+    duration: "90 mins",
     popular: true,
-    description: 'Custom extension sculpting fitted to your natural nail apex. Durable, lightweight, odor-free, and sculpted to your desired length & silhouette.',
-    image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=800&q=80',
+    description:
+      "Bespoke architectural nail extensions sculpted seamlessly over precision paper forms without damaging glued plastic tips. Formulated with lightweight, odorless, hypoallergenic European builder resin tailored to your preferred silhouette—from elegant oval to modern ballerina coffin—with featherlight durability.",
+    image:
+      "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=800&q=80",
   },
 
   // Nail Art
   {
-    title: 'Parisian French Glazed Chrome',
-    category: 'Nail Art',
-    price: '₹1,450',
-    duration: '60 mins',
+    title: "Parisian French Glazed Chrome",
+    category: "Nail Art",
+    categoryKey: "nail-art",
+    price: "₹1,450",
+    duration: "60 mins",
     popular: true,
-    description: 'Subtle micro-French smile line overlaid with fine micron pearlescent chrome powder. The epitome of quiet luxury.',
-    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80',
+    description:
+      "A modern haute couture interpretation of the Parisian classic. Hand-painted micro smile lines paired with a gossamer veil of imported micronized glazed chrome powder, creating an iridescent, pearlescent glass-like reflection that radiates effortless sophistication in ambient light.",
+    image:
+      "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80",
   },
   {
-    title: 'Cat-Eye Velvet Magnetic Shimmer',
-    category: 'Nail Art',
-    price: '₹1,600',
-    duration: '65 mins',
+    title: "Cat-Eye Velvet Magnetic Shimmer",
+    category: "Nail Art",
+    categoryKey: "nail-art",
+    price: "₹1,600",
+    duration: "65 mins",
     popular: false,
-    description: '3D optical illusion gel manipulated with precision magnetic wand for a luxurious velvet texture that gleams in every light.',
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+    description:
+      "High-density magnetic optical gel manipulated by hand using specialized neodymium multi-directional magnetic wands. Generates an enchanting 3D velvet illusion with liquid silk depths that seamlessly catch, refract, and dance with illumination from every angle of movement.",
+    image:
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
   },
 
   // Pedicures
   {
-    title: 'Signature Volcanic Herbal Pedicure',
-    category: 'Pedicure & Spa',
-    price: '₹1,350',
-    duration: '65 mins',
+    title: "Signature Volcanic Herbal Pedicure",
+    category: "Pedicure & Spa",
+    categoryKey: "pedicure",
+    price: "₹1,350",
+    duration: "65 mins",
     popular: true,
-    description: 'Organic eucalyptus foot soak, volcanic pumice smoothing, raw sugar cane exfoliation, deep callus treatment, and restorative acupressure massage.',
-    image: '/pedicure-extractpics.webp',
+    description:
+      "A revitalizing 6-step botanical ceremony commencing with warm Mediterranean eucalyptus foot immersion, natural volcanic pumice callus smoothing, raw sugar cane exfoliation, deep dermal heel repair butter, and an extended 20-minute therapeutic acupressure lower leg and reflexology massage.",
+    image: "/pedicure-extractpics.webp",
   },
   {
-    title: 'Rose & Shea Butter Paraffin Ritual',
-    category: 'Pedicure & Spa',
-    price: '₹1,750',
-    duration: '75 mins',
+    title: "Rose & Shea Butter Paraffin Ritual",
+    category: "Pedicure & Spa",
+    categoryKey: "pedicure",
+    price: "₹1,750",
+    duration: "75 mins",
     popular: false,
-    description: 'Deep therapeutic moisture bath with heated paraffin booties infused with Damask rose essential oil to soothe cracked heels and tired soles.',
-    image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80',
+    description:
+      "An intensive thermal moisture ritual tailored for dehydrated skin and cracked heels. Includes gentle herbal exfoliation followed by cocooning feet in medical-grade warm paraffin booties enriched with pure organic Bulgarian Damask rose oil and raw Ghanaian shea butter for ultra-soft, supple results.",
+    image:
+      "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80",
   },
 
   // Laser & Skin
   {
-    title: 'Pain-Free Triple Wavelength Laser',
-    category: 'Laser & Aesthetics',
-    price: '₹1,800',
-    duration: '30 mins',
+    title: "Pain-Free Triple Wavelength Laser",
+    category: "Laser & Aesthetics",
+    categoryKey: "laser",
+    price: "₹1,800",
+    duration: "30 mins",
     popular: true,
-    description: '755nm / 808nm / 1064nm combined diode laser featuring -5°C sapphire crystal contact cooling. Safe across all Indian Fitzpatrick skin types.',
-    image: '/laser-hair-reduction-extractpics.webp',
+    description:
+      "Advanced medical-grade laser hair reduction combining simultaneous 755nm, 808nm, and 1064nm wavelengths into a single pulse. Features real-time -5°C sapphire crystal contact cooling that eliminates thermal discomfort, delivering permanent smooth follicle reduction safe across all Indian Fitzpatrick skin tones.",
+    image: "/laser-hair-reduction-extractpics.webp",
   },
   {
-    title: 'Parisian Radiance Enzyme Glow Facial',
-    category: 'Skincare',
-    price: '₹2,400',
-    duration: '60 mins',
+    title: "Parisian Radiance Enzyme Glow Facial",
+    category: "Skincare",
+    categoryKey: "skincare",
+    price: "₹2,400",
+    duration: "60 mins",
     popular: false,
-    description: 'French facial contouring massage, papaya and pumpkin enzyme peel, hyaluronic hydro-infusion, and soothing spirulina alginate mask.',
-    image: 'https://images.unsplash.com/photo-1512290900672-1f4142751f08?auto=format&fit=crop&w=800&q=80',
+    description:
+      "A luxurious non-invasive European glow ritual combining enzymatic papaya and fermented pumpkin fruit acid resurfacing, lymphatic sculpting contour massage, deep multi-molecular hyaluronic hydro-infusion, and a cooling spirulina marine alginate mask for instant porcelain radiance.",
+    image: "/facial-extractpics.webp",
   },
   {
-    title: 'Silk Honey Waxing & Eyebrow Architecture',
-    category: 'Waxing & Brows',
-    price: '₹650',
-    duration: '35 mins',
+    title: "Silk Honey Waxing & Eyebrow Architecture",
+    category: "Waxing & Brows",
+    categoryKey: "waxing",
+    price: "₹650",
+    duration: "35 mins",
     popular: false,
-    description: 'Golden honey stripless hot wax designed for sensitive areas, accompanied by custom golden ratio brow mapping and organic aloe vera soothing.',
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
-  }
+    description:
+      "Gentle stripless golden honey wax imported from Italy, specially formulated with chamomile and beeswax to treat sensitive facial zones. Combined with bespoke geometric Golden Ratio eyebrow mapping, artisan tweezing, and calming organic aloe vera mist for clean, defined definition.",
+    image:
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
+  },
 ];
 
 const addOns = [
-  { name: 'IBX Natural Nail Intensive Repair Treatment', price: '₹350', time: '+15 mins' },
-  { name: 'Deep Collagen Hand Mask with Warm Mittens', price: '₹400', time: '+15 mins' },
-  { name: 'Swarovski Crystal Inlay (Per Nail)', price: '₹150', time: '+5 mins' },
-  { name: 'Aroma Scalp & Neck Stress Release Massage', price: '₹500', time: '+20 mins' },
-  { name: 'Gentle Safe Extension Soak-off Removal', price: '₹450', time: '+25 mins' },
-  { name: 'Hydrating Lip Collagen Plumping Therapy', price: '₹300', time: '+10 mins' },
+  {
+    name: "IBX Natural Nail Intensive Repair Treatment",
+    price: "₹350",
+    time: "+15 mins",
+  },
+  {
+    name: "Deep Collagen Hand Mask with Warm Mittens",
+    price: "₹400",
+    time: "+15 mins",
+  },
+  {
+    name: "Swarovski Crystal Inlay (Per Nail)",
+    price: "₹150",
+    time: "+5 mins",
+  },
+  {
+    name: "Aroma Scalp & Neck Stress Release Massage",
+    price: "₹500",
+    time: "+20 mins",
+  },
+  {
+    name: "Gentle Safe Extension Soak-off Removal",
+    price: "₹450",
+    time: "+25 mins",
+  },
+  {
+    name: "Hydrating Lip Collagen Plumping Therapy",
+    price: "₹300",
+    time: "+10 mins",
+  },
 ];
 ---
 
@@ -117,38 +176,96 @@ const addOns = [
   title="Our Services & Treatments | La Beauté Salon Manipal"
   description="Explore our full menu of Russian dry manicures, Parisian nail art, spa pedicures, painless cooling laser hair reduction, and facials in Manipal, Udupi."
 >
-  <!-- HERO HEADER -->
+  <!-- 1. HERO HEADER (Background: Cream #f6f6ee) -->
   <section class="py-16 sm:py-20 bg-[#f6f6ee] border-b border-[#ebebdf]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">Comprehensive Menu</span>
-      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-lb-gray-dark mt-3 mb-6">
+      <span
+        class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans"
+      >
+        Comprehensive Menu
+      </span>
+      <h1
+        class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-lb-gray-dark mt-3 mb-6"
+      >
         Curated Salon Services
       </h1>
-      <p class="text-base sm:text-lg text-lb-gray max-w-2xl mx-auto font-light leading-relaxed">
-        From medical-grade Russian manicure precision to comfortable cooling laser treatments, discover therapies designed with Parisian artistry.
+      <p
+        class="text-base sm:text-lg text-lb-gray max-w-2xl mx-auto font-light leading-relaxed"
+      >
+        From medical-grade Russian manicure precision to comfortable cooling
+        laser treatments, discover therapies designed with Parisian artistry.
       </p>
     </div>
   </section>
 
-  <!-- ALL SERVICES GRID -->
-  <section class="py-24 bg-[#f6f6ee]">
+  <!-- 2. ALL SERVICES GRID WITH FILTER TABS (Background: White #ffffff) -->
+  <section class="py-24 bg-white border-b border-[#ebebdf]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {allServices.map((service) => (
-          <div class="reveal-on-scroll">
-            <ServiceCard {...service} />
-          </div>
-        ))}
+      <!-- Section Heading -->
+      <div class="text-center max-w-3xl mx-auto mb-10 reveal-on-scroll">
+        <span
+          class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans"
+        >
+          Signature Craftsmanship
+        </span>
+        <h2
+          class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-lb-gray-dark mt-2 mb-4"
+        >
+          Our Signature Treatments
+        </h2>
+        <p class="text-base text-lb-gray font-light">
+          Filter by category to explore customized treatments tailored to your aesthetic preferences.
+        </p>
+      </div>
+
+      <!-- Portfolio-style Category Filter Controls -->
+      <div class="flex flex-wrap justify-center gap-2 mb-12 reveal-on-scroll" id="services-filter-controls">
+        {
+          filterCategories.map((cat, index) => (
+            <button
+              type="button"
+              class={`services-filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                index === 0
+                  ? "active bg-lb-gray text-white shadow-sm hover:bg-lb-gray-dark"
+                  : "bg-white text-lb-gray border border-[#ebebdf] hover:border-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark"
+              }`}
+              data-service-filter={cat.key}
+            >
+              {cat.label}
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Services Grid with White Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+        {
+          allServices.map((service) => (
+            <div
+              class="service-item-wrapper reveal-on-scroll transition-all duration-300"
+              data-service-category={service.categoryKey}
+              style={service.categoryKey === filterCategories[0].key ? "" : "display: none;"}
+            >
+              <ServiceCard {...service} />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <!-- ADD-ON TREATMENTS SECTION -->
-  <section class="py-20 bg-white border-y border-[#ebebdf]">
+  <!-- 3. ADD-ON TREATMENTS SECTION (Background: Cream #f6f6ee - Alternating) -->
+  <section class="py-20 bg-[#f6f6ee] border-b border-[#ebebdf]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 reveal-on-scroll">
-        <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">Elevate Your Visit</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-lb-gray-dark mt-2 mb-3">
+        <span
+          class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans"
+        >
+          Elevate Your Visit
+        </span>
+        <h2
+          class="font-serif text-3xl sm:text-4xl font-bold text-lb-gray-dark mt-2 mb-3"
+        >
           Luxury Add-On Enhancements
         </h2>
         <p class="text-sm text-lb-gray font-light">
@@ -157,23 +274,122 @@ const addOns = [
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {addOns.map((addon) => (
-          <div class="p-4 rounded-2xl bg-[#fafaf6] border border-[#ebebdf] flex items-center justify-between hover:border-lb-gray transition-colors">
-            <div>
-              <h4 class="font-serif font-bold text-sm text-lb-gray-dark">{addon.name}</h4>
-              <span class="text-[11px] text-lb-gray-light font-number">{addon.time}</span>
+        {
+          addOns.map((addon) => (
+            <div class="p-4 rounded-2xl bg-white border border-[#ebebdf] flex items-center justify-between hover:border-lb-gray transition-colors shadow-xs">
+              <div>
+                <h3 class="font-serif font-bold text-sm text-lb-gray-dark">
+                  {addon.name}
+                </h3>
+                <span class="text-[11px] text-lb-gray-light font-number">
+                  {addon.time}
+                </span>
+              </div>
+              <span class="font-number font-bold text-base text-lb-gray-dark">
+                {addon.price}
+              </span>
             </div>
-            <span class="font-number font-bold text-base text-lb-gray-dark">{addon.price}</span>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <!-- TRANSPARENT PRICING TABLE SECTION -->
-  <section class="py-24 bg-[#f6f6ee]">
+  <!-- 4. TRANSPARENT PRICING TABLE SECTION (Background: White #ffffff - Alternating) -->
+  <section class="py-24 bg-white border-b border-[#ebebdf]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
       <PricingTable />
     </div>
   </section>
+
+  <!-- 5. FREQUENTLY ASKED QUESTIONS SECTION (Background: Cream #f6f6ee - At the end) -->
+  <section class="py-24 bg-[#f6f6ee]" id="faq">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Heading and Description outside the Shadcn Accordion Borders -->
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span
+          class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans"
+        >
+          Common Inquiries
+        </span>
+        <h2
+          class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-lb-gray-dark mt-2 mb-4"
+        >
+          Frequently Asked Questions
+        </h2>
+        <p class="text-base text-lb-gray font-light max-w-2xl mx-auto">
+          Everything you need to know about our sterile protocols, Russian manicure technique, cooling laser safety, and salon appointments.
+        </p>
+      </div>
+
+      <!-- Shadcn-Style Accordion Component -->
+      <div class="reveal-on-scroll bg-white/60 backdrop-blur-xs p-6 sm:p-10 rounded-3xl border border-[#ebebdf] shadow-xs">
+        <FAQAccordion />
+      </div>
+    </div>
+  </section>
 </DefaultLayout>
+
+<script>
+  function initServiceCategoryFilter() {
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>('.services-filter-btn');
+    const items = document.querySelectorAll<HTMLElement>('.service-item-wrapper');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.serviceFilter;
+
+        filterBtns.forEach((b) => {
+          b.classList.remove(
+            'active',
+            'bg-lb-gray',
+            'text-white',
+            'shadow-sm',
+            'hover:bg-lb-gray-dark',
+          );
+          b.classList.add(
+            'bg-white',
+            'text-lb-gray',
+            'border',
+            'border-[#ebebdf]',
+            'hover:border-lb-gray',
+            'hover:bg-lb-gray/40',
+            'hover:text-lb-gray-dark',
+          );
+        });
+        btn.classList.remove(
+          'bg-white',
+          'text-lb-gray',
+          'border',
+          'border-[#ebebdf]',
+          'hover:border-lb-gray',
+          'hover:bg-lb-gray/40',
+          'hover:text-lb-gray-dark',
+        );
+        btn.classList.add(
+          'active',
+          'bg-lb-gray',
+          'text-white',
+          'shadow-sm',
+          'hover:bg-lb-gray-dark',
+        );
+
+        items.forEach((item) => {
+          const category = item.dataset.serviceCategory;
+          if (category === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceCategoryFilter);
+  } else {
+    initServiceCategoryFilter();
+  }
+  document.addEventListener('astro:page-load', initServiceCategoryFilter);
+</script>

@@ -61,7 +61,7 @@ const isActive = (href: string) => {
 
       <!-- Desktop Navigation -->
       <nav
-        class="hidden md:flex items-center space-x-1 lg:space-x-2"
+        class="hidden lg:flex items-center space-x-6 lg:space-x-8"
         aria-label="Main Navigation"
       >
         {
@@ -70,10 +70,10 @@ const isActive = (href: string) => {
             return (
               <a
                 href={item.href}
-                class={`px-4 py-2 text-xs uppercase tracking-wider font-semibold rounded-full transition-all duration-200 ${
+                class={`nav-link text-xs uppercase tracking-wider font-semibold py-1 transition-colors duration-200 ${
                   active
-                    ? "text-white bg-lb-gray shadow-sm"
-                    : "text-lb-gray hover:text-lb-gray-dark hover:bg-lb-gray/20"
+                    ? "active text-lb-gray-dark"
+                    : "text-lb-gray hover:text-lb-gray-dark"
                 }`}
               >
                 {item.label}
@@ -84,7 +84,7 @@ const isActive = (href: string) => {
       </nav>
 
       <!-- Right Header Actions: Balanced Call & WhatsApp Icon Logos -->
-      <div class="hidden sm:flex items-center space-x-3">
+      <div class="hidden lg:flex items-center space-x-3">
         <!-- Call Icon Button -->
         <a
           href="tel:+917204103767"
@@ -116,21 +116,16 @@ const isActive = (href: string) => {
         </a>
 
         <!-- Secondary Outline Booking Button with Primary/40 lighter hover -->
-        <a
-          href="/contact"
-          class="border border-lb-gray text-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark px-5 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-200"
-        >
-          Book Now
-        </a>
+        <Button variant="outline" size="sm" href="/contact"> Book Now </Button>
       </div>
 
       <!-- Mobile Right Section (Call, WhatsApp & Hamburger) -->
-      <div class="flex items-center space-x-2 md:hidden">
+      <div class="flex items-center space-x-2 lg:hidden">
         <!-- Call Icon Logo -->
         <a
           href="tel:+917204103767"
           aria-label="Call +91 720 410 3767"
-          class="w-9 h-9 rounded-full border border-lb-gray/30 bg-white text-lb-gray flex items-center justify-center"
+          class="w-9 h-9 rounded-full border border-lb-gray/30 bg-white text-lb-gray flex items-center justify-center hover:bg-lb-gray/10 transition-colors"
         >
           <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
             <path
@@ -145,7 +140,7 @@ const isActive = (href: string) => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
-          class="w-9 h-9 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 text-[#128C7E] flex items-center justify-center"
+          class="w-9 h-9 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 text-[#128C7E] flex items-center justify-center hover:bg-[#25D366]/20 transition-colors"
         >
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
             <path
@@ -158,9 +153,9 @@ const isActive = (href: string) => {
         <button
           type="button"
           id="mobile-menu-btn"
-          class="p-2 rounded-lg text-lb-gray hover:text-lb-gray-dark hover:bg-black/5 focus:outline-none transition-colors"
+          class="p-2 rounded-lg text-lb-gray hover:text-lb-gray-dark hover:bg-black/5 focus:outline-none transition-colors cursor-pointer"
           aria-expanded="false"
-          aria-label="Toggle mobile menu"
+          aria-label="Toggle navigation menu"
         >
           <svg
             id="hamburger-icon"
@@ -196,9 +191,9 @@ const isActive = (href: string) => {
   <!-- Mobile Drawer Menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden border-t border-[#ebebdf] bg-[#f6f6ee]/98 backdrop-blur-md px-6 pt-4 pb-8 space-y-4 shadow-lg animate-fade-in"
+    class="hidden lg:hidden border-t border-[#ebebdf] bg-[#f6f6ee]/98 backdrop-blur-md px-6 pt-4 pb-8 space-y-4 shadow-lg animate-fade-in"
   >
-    <nav class="flex flex-col space-y-2">
+    <nav class="flex flex-col space-y-2 max-w-lg mx-auto">
       {
         navItems.map((item) => {
           const active = isActive(item.href);
@@ -217,8 +212,8 @@ const isActive = (href: string) => {
         })
       }
     </nav>
-    <div class="pt-4 border-t border-[#ebebdf] space-y-3">
-      <Button href="/contact" variant="outline" class="w-full">
+    <div class="pt-4 border-t border-[#ebebdf] space-y-3 max-w-lg mx-auto">
+      <Button href="/contact" variant="outline" class="w-full justify-center">
         Book Now
       </Button>
     </div>
@@ -251,11 +246,57 @@ const isActive = (href: string) => {
   const hamburgerIcon = document.getElementById("hamburger-icon");
   const closeIcon = document.getElementById("close-icon");
 
-  menuBtn?.addEventListener("click", () => {
-    const isExpanded = menuBtn.getAttribute("aria-expanded") === "true";
-    menuBtn.setAttribute("aria-expanded", String(!isExpanded));
+  const toggleMobileMenu = () => {
+    const isExpanded = menuBtn?.getAttribute("aria-expanded") === "true";
+    menuBtn?.setAttribute("aria-expanded", String(!isExpanded));
     mobileMenu?.classList.toggle("hidden");
     hamburgerIcon?.classList.toggle("hidden");
     closeIcon?.classList.toggle("hidden");
+  };
+
+  menuBtn?.addEventListener("click", toggleMobileMenu);
+
+  // Close mobile menu when a nav link is clicked
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (!mobileMenu.classList.contains("hidden")) {
+        toggleMobileMenu();
+      }
+    });
   });
 </script>
+
+<style>
+  .nav-link {
+    position: relative;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* 2px bottom border animation */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #636164; /* lighter / primary color on hover */
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+    background-color: #636164; /* lighter / primary color on hover */
+  }
+
+  /* Active: Keep 2px darker border visible */
+  .nav-link.active {
+    color: #2c2a2d; /* darker text for active */
+  }
+
+  .nav-link.active::after {
+    width: 100%;
+    background-color: #2c2a2d; /* darker border for active */
+  }
+</style>

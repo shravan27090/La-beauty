@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  orientation?: "horizontal" | "vertical";
+  decorative?: boolean;
+  class?: string;
+}
+
+const {
+  orientation = "horizontal",
+  decorative = true,
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const orientationStyles =
+  orientation === "horizontal"
+    ? "h-[1px] w-full"
+    : "h-full w-[2px]";
+---
+
+<div
+  role={decorative ? "none" : "separator"}
+  aria-orientation={decorative ? undefined : orientation}
+  class={`shrink-0 bg-[#ebebdf] ${orientationStyles} ${className}`}
+  {...rest}
+/>

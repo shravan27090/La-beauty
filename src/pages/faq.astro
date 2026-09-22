@@ -1,0 +1,73 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import Button from "../components/ui/Button.astro";
+---
+
+<DefaultLayout
+  title="Frequently Asked Questions | La Beauté Luxury Salon Manipal"
+  description="Common questions about Russian dry manicures, autoclave sterilization, pain-free cooling laser, gel nail art, and booking appointments at La Beauté in Manipal, Udupi."
+>
+  <!-- HERO HEADER -->
+  <section class="py-16 sm:py-20 bg-[#f6f6ee] border-b border-[#ebebdf]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">
+        Help & Guidance
+      </span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-lb-gray-dark mt-3 mb-6">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-base sm:text-lg text-lb-gray max-w-2xl mx-auto font-light leading-relaxed">
+        Everything you need to know about our sterile protocols, Russian manicure mastery, painless cooling laser, and appointment reservations.
+      </p>
+    </div>
+  </section>
+
+  <!-- ACCORDION SECTION WITH SHADCN BORDERS -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Heading and Description Outside the Borders -->
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">
+          Clear Answers
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-lb-gray-dark mt-2 mb-4">
+          Client Inquiries & Treatment Care
+        </h2>
+        <p class="text-base text-lb-gray font-light max-w-xl mx-auto">
+          Explore answers to our most common questions. If you need personalized consultations, our stylists are available daily.
+        </p>
+      </div>
+
+      <div class="reveal-on-scroll">
+        <FAQAccordion />
+      </div>
+
+      <!-- Quick Contact Card at bottom -->
+      <div class="mt-16 p-8 rounded-3xl bg-[#fafaf6] border border-[#ebebdf] flex flex-col sm:flex-row items-center justify-between gap-6 reveal-on-scroll">
+        <div>
+          <h3 class="font-serif text-xl font-bold text-lb-gray-dark mb-1">
+            Have another question or specific request?
+          </h3>
+          <p class="text-xs sm:text-sm text-lb-gray font-light">
+            Our front desk is available daily from 10:00 AM to 8:00 PM for custom bridal suites and aesthetic consultations.
+          </p>
+        </div>
+
+        <div class="flex items-center space-x-3 flex-shrink-0">
+          <Button href="/contact" variant="outline" size="sm">
+            Contact Us
+          </Button>
+          <a
+            href="https://wa.me/917204103767?text=Hello%20La%20Beaut%C3%A9,%20I%20have%20a%20question%20regarding%20your%20services"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-lb-gray text-white hover:bg-lb-gray-dark transition-all duration-200 shadow-sm"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

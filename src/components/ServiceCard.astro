@@ -1,0 +1,126 @@
+---
+interface Props {
+  title: string;
+  category: string;
+  price: string;
+  duration: string;
+  description: string;
+  image: string;
+  popular?: boolean;
+}
+
+const {
+  title,
+  category,
+  price,
+  duration,
+  description,
+  image,
+  popular = false,
+} = Astro.props;
+---
+
+<div
+  class="group relative bg-white rounded-2xl overflow-hidden border border-[#ebebdf] shadow-sm hover:shadow-luxury-hover transition-all duration-300 flex flex-col h-full hover:-translate-y-1"
+>
+  <!-- Popular Badge -->
+  {
+    popular && (
+      <div class="absolute top-3.5 right-3.5 z-20 bg-lb-gray-dark text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm border border-white/20">
+        Most Loved
+      </div>
+    )
+  }
+
+  <!-- Card Image Container -->
+  <div class="relative h-60 sm:h-64 overflow-hidden bg-[#ebebdf]">
+    <img
+      src={image}
+      alt={title}
+      width="400"
+      height="260"
+      loading="lazy"
+      decoding="async"
+      class="w-full h-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"
+    >
+    </div>
+
+    <!-- Category pill -->
+    <span
+      class="absolute bottom-3.5 left-3.5 text-[11px] font-semibold uppercase tracking-wider text-white bg-black/45 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 font-sans"
+    >
+      {category}
+    </span>
+  </div>
+
+  <!-- Card Content -->
+  <div class="p-6 flex flex-col flex-grow justify-between bg-white">
+    <div>
+      <h3
+        class="font-serif text-xl font-bold text-lb-gray-dark group-hover:text-black transition-colors duration-200 mb-2"
+      >
+        {title}
+      </h3>
+
+      <p
+        class="text-xs sm:text-sm text-lb-gray leading-relaxed mb-6 font-light line-clamp-3"
+      >
+        {description}
+      </p>
+    </div>
+
+    <!-- Duration, Price & Action -->
+    <div class="pt-4 border-t border-[#f2f2eb]">
+      <div class="flex items-center justify-between mb-4">
+        <div
+          class="flex items-center text-xs text-lb-gray font-medium space-x-1.5 font-number"
+        >
+          <svg
+            class="w-4 h-4 text-lb-gray"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>{duration}</span>
+        </div>
+
+        <div class="text-right">
+          <span
+            class="text-[10px] text-lb-gray-light uppercase tracking-wider block -mb-0.5 font-sans"
+            >Starting at</span
+          >
+          <span class="font-number text-xl font-bold text-lb-gray-dark"
+            >{price}</span
+          >
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <a
+          href="/contact"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center py-2.5 px-3 rounded-full text-xs font-semibold uppercase tracking-wider bg-lb-gray text-white hover:bg-lb-gray-dark transition-all duration-200 shadow-sm text-center"
+        >
+          Book Now
+        </a>
+        <!-- Secondary Outline Button with Primary/40 hover -->
+        <a
+          href={`tel:+917204103767`}
+          class="flex items-center justify-center py-2.5 px-3 rounded-full text-xs font-semibold uppercase tracking-wider border border-lb-gray text-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark transition-all duration-200 text-center"
+        >
+          Call Salon
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

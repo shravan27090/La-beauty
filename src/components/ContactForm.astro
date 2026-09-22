@@ -1,0 +1,330 @@
+---
+import Input from "./ui/Input.astro";
+import Label from "./ui/Label.astro";
+import Select from "./ui/Select.astro";
+import Textarea from "./ui/Textarea.astro";
+import Button from "./ui/Button.astro";
+import MultiSelect, { type MultiSelectOption } from "./ui/MultiSelect.astro";
+import DatePicker from "./ui/DatePicker.astro";
+import SonnerToast from "./ui/SonnerToast.astro";
+
+const serviceOptions: MultiSelectOption[] = [
+  {
+    value: "Russian Precision Manicure",
+    label: "Russian Precision Manicure",
+    category: "Nails",
+  },
+  {
+    value: "Deluxe Parisian Spa Pedicure",
+    label: "Deluxe Parisian Spa Pedicure",
+    category: "Pedicure",
+  },
+  {
+    value: "Gel Extensions & Bespoke Nail Art",
+    label: "Gel Extensions & Bespoke Nail Art",
+    category: "Nails",
+  },
+  {
+    value: "Painless Laser Hair Reduction",
+    label: "Painless Laser Hair Reduction",
+    category: "Laser",
+  },
+  {
+    value: "Parisian Radiance Facial & Skin Care",
+    label: "Parisian Radiance Facial & Skin Care",
+    category: "Skin",
+  },
+  {
+    value: "Precision Waxing & Threading",
+    label: "Precision Waxing & Threading",
+    category: "Waxing",
+  },
+  {
+    value: "Bridal Bespoke Styling Suite",
+    label: "Bridal Bespoke Styling Suite",
+    category: "Bridal",
+  },
+  {
+    value: "Safe Extension Soak-Off & Nail Rehab",
+    label: "Safe Extension Soak-Off & Nail Rehab",
+    category: "Nails",
+  },
+  {
+    value: "Other / General Consultation",
+    label: "Other / General Consultation",
+    category: "Consultation",
+  },
+];
+---
+
+<div
+  class="bg-white rounded-3xl p-8 sm:p-10 border border-[#ebebdf] shadow-luxury"
+>
+  <div class="mb-8">
+    <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold"
+      >Direct Salon Inquiries</span
+    >
+    <h3 class="font-serif text-3xl font-bold text-lb-gray-dark mt-2 mb-3">
+      Reserve Your Treatment Suite
+    </h3>
+    <p class="text-sm text-lb-gray font-light">
+      Select your preferred services and appointment timing. Our salon concierge
+      will reach out within 2 hours to confirm your suite.
+    </p>
+  </div>
+
+  <form id="salon-contact-form" class="space-y-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Full Name -->
+      <div>
+        <Label for="name">Your Full Name *</Label>
+        <Input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="e.g. Ananya Rao"
+        />
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <Label for="phone">Phone / WhatsApp Number *</Label>
+        <Input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          placeholder="+91 98765 43210"
+        />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Email Address -->
+      <div>
+        <Label for="email">Email Address</Label>
+        <Input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ananya@example.com"
+        />
+      </div>
+
+      <!-- Service Selection (Custom MultiSelect) -->
+      <div>
+        <Label for="service">Services Interested In *</Label>
+        <MultiSelect
+          id="service"
+          name="service"
+          options={serviceOptions}
+          placeholder="Select treatments..."
+          required={true}
+        />
+      </div>
+    </div>
+
+    <!-- Preferred Date & Time -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div>
+        <Label for="date">Preferred Date *</Label>
+        <DatePicker
+          id="date"
+          name="date"
+          placeholder="Pick an appointment date"
+          required={true}
+        />
+      </div>
+
+      <div>
+        <Label for="time">Preferred Time Slot *</Label>
+        <Select id="time" name="time" required={true}>
+          <option value="" disabled selected>Select time slot...</option>
+          <option value="Morning (10:00 AM - 1:00 PM)"
+            >Morning (10:00 AM – 1:00 PM)</option
+          >
+          <option value="Afternoon (1:00 PM - 5:00 PM)"
+            >Afternoon (1:00 PM – 5:00 PM)</option
+          >
+          <option value="Evening (5:00 PM - 8:00 PM)"
+            >Evening (5:00 PM – 8:00 PM)</option
+          >
+        </Select>
+      </div>
+    </div>
+
+    <!-- Message / Notes -->
+    <div>
+      <Label for="message">Special Requests or Nail Inspiration Notes</Label>
+      <Textarea
+        id="message"
+        name="message"
+        rows={4}
+        placeholder="Share if you have existing gel/acrylic to remove, or specific nail art styles you'd love..."
+      />
+    </div>
+
+    <!-- Submit Button & Feedback Status -->
+    <div class="pt-2">
+      <Button type="submit" variant="default" class="w-full h-12">
+        <span id="btn-text">Send Appointment Request</span>
+        <svg
+          class="w-4 h-4 ml-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </Button>
+    </div>
+
+    <!-- Success / Error Notice -->
+    <div
+      id="form-feedback"
+      class="hidden p-4 rounded-xl text-center text-sm font-medium"
+    >
+    </div>
+
+    <!-- Alternative Direct WhatsApp -->
+    <div class="pt-4 border-t border-[#f2f2eb] text-center">
+      <p class="text-xs text-lb-gray mb-2">Prefer instant confirmation?</p>
+      <a
+        href="https://wa.me/917204103767?text=Hello%20La%20Beaut%C3%A9,%20I%20would%20like%20to%20inquire%20about%20booking%20an%20appointment%20today"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center space-x-2 text-xs font-semibold text-[#128C7E] hover:underline"
+      >
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <path
+            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.993.541 1.777.817 2.796.817 3.182 0 5.768-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"
+          ></path>
+        </svg>
+        <span class="font-number"
+          >Chat directly with salon manager on WhatsApp (+91 720 410 3767)</span
+        >
+      </a>
+    </div>
+  </form>
+
+  <!-- Shadcn Sonner Toast Component -->
+  <SonnerToast />
+</div>
+
+<script>
+  const form = document.getElementById(
+    "salon-contact-form",
+  ) as HTMLFormElement | null;
+  const feedback = document.getElementById("form-feedback");
+  const btnText = document.getElementById("btn-text");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!form || !feedback || !btnText) return;
+
+    const formData = new FormData(form);
+    const toast = (window as any).toast;
+
+    // 1. Full Name validation
+    const name = ((formData.get("name") as string) || "").trim();
+    if (!name || name.length < 2) {
+      if (toast) {
+        toast.error(
+          "Full Name Required",
+          "Please enter your name so our concierge knows who to welcome.",
+        );
+      }
+      document.getElementById("name")?.focus();
+      return;
+    }
+
+    // 2. Phone validation
+    const phone = ((formData.get("phone") as string) || "").trim();
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (!phone || phoneDigits.length < 8) {
+      if (toast) {
+        toast.error(
+          "Valid Phone Number Required",
+          "Please provide a valid 10-digit mobile or WhatsApp number.",
+        );
+      }
+      document.getElementById("phone")?.focus();
+      return;
+    }
+
+    // 3. Treatment service selection validation
+    const service = ((formData.get("service") as string) || "").trim();
+    if (!service) {
+      if (toast) {
+        toast.error(
+          "Treatment Selection Required",
+          "Please select at least one beauty service from the dropdown.",
+        );
+      }
+      document.getElementById("service-trigger")?.focus();
+      return;
+    }
+
+    // 4. Preferred Date validation
+    const date = ((formData.get("date") as string) || "").trim();
+    if (!date) {
+      if (toast) {
+        toast.error(
+          "Appointment Date Required",
+          "Please select your preferred date using the calendar.",
+        );
+      }
+      document.getElementById("date-trigger")?.focus();
+      return;
+    }
+
+    // 5. Preferred Time Slot validation (mandatory)
+    const time = ((formData.get("time") as string) || "").trim();
+    if (!time) {
+      if (toast) {
+        toast.error(
+          "Time Slot Required",
+          "Please select your preferred appointment time slot.",
+        );
+      }
+      document.getElementById("time")?.focus();
+      return;
+    }
+
+    btnText.textContent = "Sending Request...";
+
+    setTimeout(() => {
+      btnText.textContent = "Request Submitted!";
+
+      // Trigger shadcn Sonner Success Toast
+      if (toast) {
+        toast.success(
+          "Appointment Request Received!",
+          `Merci beaucoup, ${name}! Our concierge will contact you shortly to confirm your booking.`,
+        );
+      }
+
+      feedback.classList.remove("hidden");
+      feedback.className =
+        "p-4 rounded-xl text-center text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 animate-fade-in";
+      feedback.innerHTML = `
+        <p class="font-bold">Merci beaucoup, ${name}!</p>
+        <p class="text-xs mt-1">Your request for <strong>${service}</strong> on <strong>${date}</strong> (${time}) has been received. Our salon manager will contact you at ${phone} shortly to finalize your appointment suite.</p>
+      `;
+      form.reset();
+
+      // Reset datepicker display if cleared
+      const dateClear = document.getElementById("date-clear");
+      dateClear?.click();
+
+      // Reset multiselect display
+      const serviceClear = document.getElementById("service-clear-btn");
+      serviceClear?.click();
+    }, 600);
+  });
+</script>

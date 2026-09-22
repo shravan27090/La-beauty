@@ -1,0 +1,151 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = 'La Beauté | Where Beauty Meets Art | Luxury Nail & Beauty Salon Udupi',
+  description = 'Premier luxury nail lounge, Russian manicure, bespoke nail art, painless laser hair reduction, and transformative skincare in Manipal, Udupi. 4.9★ rated.',
+  image = '/La-Beaute-logo.png',
+  canonicalUrl = Astro.url.href,
+} = Astro.props;
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "La Beauté",
+  "image": "https://la-beaute.in/La-Beaute-logo.png",
+  "telephone": "+917204103767",
+  "email": "info@la-beaute.in",
+  "url": "https://la-beaute.in",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Greenview Apartments, SH 65, near Trends, Hayagreeva Nagar",
+    "addressLocality": "Manipal, Udupi",
+    "addressRegion": "Karnataka",
+    "postalCode": "576104",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "13.3525",
+    "longitude": "74.7865"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "10:00",
+      "closes": "20:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "23",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- User Specified Favicon -->
+    <link rel="icon" type="image/webp" href="/La-Beaute-Fav-1-1.webp" />
+
+    <!-- Google Fonts Preconnect & Load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph & Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+  </head>
+
+  <body class="min-h-screen flex flex-col font-sans">
+    <Header currentPath={Astro.url.pathname} />
+
+    <!-- Main Content Container with Top Margin for Fixed Header -->
+    <main class="flex-grow pt-20">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Scroll-Triggered Reveal Animations Script -->
+    <script>
+      const initScrollReveal = () => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const targets = document.querySelectorAll('.reveal-on-scroll');
+        if (prefersReducedMotion) {
+          targets.forEach((el) => el.classList.add('is-revealed'));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1,
+          }
+        );
+
+        targets.forEach((target) => observer.observe(target));
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollReveal);
+      } else {
+        initScrollReveal();
+      }
+    </script>
+  </body>
+</html>

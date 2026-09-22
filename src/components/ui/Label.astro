@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'label'> {
+  for?: string;
+  class?: string;
+}
+
+const { for: htmlFor, class: className = '', ...rest } = Astro.props;
+---
+
+<label
+  for={htmlFor}
+  class={`input-label block text-xs uppercase tracking-wider font-semibold text-lb-gray-dark mb-2 select-none font-sans ${className}`}
+  {...rest}
+>
+  <slot />
+</label>

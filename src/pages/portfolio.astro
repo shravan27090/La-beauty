@@ -1,0 +1,125 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import ImageGallery, { type GalleryItem } from '../components/ImageGallery.astro';
+
+const portfolioItems: GalleryItem[] = [
+  {
+    id: '1',
+    title: 'Parisian Minimalist French Chrome',
+    category: 'nail-art',
+    categoryLabel: 'Nail Art',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=85',
+    description: 'Ultra-fine micro French tips finished with pearlescent glazed chrome powder for a subtle, high-society reflection.'
+  },
+  {
+    id: '2',
+    title: 'Russian Dry Cuticle Precision & Nude Gel',
+    category: 'manicure',
+    categoryLabel: 'Manicure',
+    image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=1000&q=85',
+    description: 'Immaculate e-file cuticle detailing followed by reinforcing natural builder gel in soft blushing porcelain.'
+  },
+  {
+    id: '3',
+    title: 'Rose Gold Shimmer Gel Extensions',
+    category: 'nail-art',
+    categoryLabel: 'Nail Art',
+    image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=1000&q=85',
+    description: 'Sculpted almond extensions adorned with hand-painted delicate metallic rose gold foils and gemstone studs.'
+  },
+  {
+    id: '4',
+    title: 'Volcanic Herbal Spa Pedicure Ritual',
+    category: 'pedicure',
+    categoryLabel: 'Pedicure',
+    image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=1000&q=85',
+    description: 'Warm botanical soak, volcanic pumice heel restoration, organic sugar exfoliation, and nail cuticle perfection.'
+  },
+  {
+    id: '5',
+    title: 'Parisian Radiance Enzyme Glow',
+    category: 'skin',
+    categoryLabel: 'Skin & Laser',
+    image: 'https://images.unsplash.com/photo-1512290900672-1f4142751f08?auto=format&fit=crop&w=1000&q=85',
+    description: 'Clinical lymphatic face sculpting massage with marine botanicals for luminous glass skin.'
+  },
+  {
+    id: '6',
+    title: 'Cat-Eye Velvet Magnetic Gel Art',
+    category: 'nail-art',
+    categoryLabel: 'Nail Art',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=85',
+    description: 'Dimensional metallic shimmer manipulated with precision neodymium magnets to capture liquid light.'
+  },
+  {
+    id: '7',
+    title: 'Glazed Donut Clean Aesthetic Manicure',
+    category: 'manicure',
+    categoryLabel: 'Manicure',
+    image: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=1000&q=85',
+    description: 'Soft milky base topped with iridescent pearlescent powder for an effortless, clean-girl daily aesthetic.'
+  },
+  {
+    id: '8',
+    title: 'Advanced Dermal Cooling Laser Care',
+    category: 'skin',
+    categoryLabel: 'Skin & Laser',
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=85',
+    description: 'Targeted cooling laser session for smooth, irritation-free aesthetic perfection across all skin types.'
+  },
+  {
+    id: '9',
+    title: 'Champagne Bridal Swarovski Inlay',
+    category: 'nail-art',
+    categoryLabel: 'Nail Art',
+    image: 'https://images.unsplash.com/photo-1500840216050-6ffa99d75160?auto=format&fit=crop&w=1000&q=85',
+    description: 'Custom bespoke bridal suite design with delicate gold leafing and genuine Swarovski crystals.'
+  }
+];
+---
+
+<DefaultLayout
+  title="Portfolio & Work Gallery | La Beauté Luxury Salon Manipal"
+  description="Explore our portfolio of nail art designs, Russian dry manicures, chrome nails, and beauty transformations at La Beauté in Manipal."
+>
+  <!-- HERO HEADER -->
+  <section class="py-16 sm:py-20 bg-[#f6f6ee] border-b border-[#ebebdf]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs uppercase tracking-[0.25em] text-lb-accent font-bold">Artistry & Inspiration</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-lb-gray-dark mt-3 mb-6">
+        The Nail Art & Aesthetics Gallery
+      </h1>
+      <p class="text-base sm:text-lg text-lb-gray max-w-2xl mx-auto font-light leading-relaxed">
+        Click any artwork below to examine high-resolution details in our interactive lightbox or reserve the exact style for your upcoming visit.
+      </p>
+    </div>
+  </section>
+
+  <!-- GALLERY COMPONENT -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ImageGallery items={portfolioItems} showFilters={true} />
+    </div>
+  </section>
+
+  <!-- INSTAGRAM BANNER -->
+  <section class="py-16 bg-[#f6f6ee] border-t border-[#ebebdf]">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="text-xs uppercase tracking-[0.25em] text-lb-accent font-bold">Daily Creations</span>
+      <h3 class="font-serif text-3xl font-bold text-lb-gray-dark mt-2 mb-4">
+        Follow Our Story on Instagram
+      </h3>
+      <p class="text-sm text-lb-gray max-w-lg mx-auto mb-6 font-light">
+        We upload daily client transformations, nail art tutorials, and seasonal color drop announcements on our Instagram feed.
+      </p>
+      <a
+        href="https://www.instagram.com/labeautemanipal/?hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-semibold bg-lb-gray text-white hover:bg-lb-gray-dark transition-all duration-200 shadow-sm"
+      >
+        <span>@labeautemanipal on Instagram</span>
+      </a>
+    </div>
+  </section>
+</DefaultLayout>

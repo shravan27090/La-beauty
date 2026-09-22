@@ -1,0 +1,169 @@
+---
+// Sonner Toast Component (shadcn/ui Sonner style)
+---
+
+<div
+  id="sonner-toast-container"
+  class="fixed top-5 right-5 z-[99999] flex flex-col gap-2.5 max-w-[390px] w-[calc(100%-2.5rem)] pointer-events-none"
+  aria-live="polite"
+></div>
+
+<style is:global>
+  .sonner-toast-item {
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.95rem 1.1rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    border: 1px solid #ebebdf;
+    box-shadow: 0 16px 36px -8px rgba(44, 42, 45, 0.16), 0 4px 12px rgba(44, 42, 45, 0.06);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    transform: translateY(-16px) scale(0.95);
+    opacity: 0;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sonner-toast-item.is-visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .sonner-toast-item.is-hiding {
+    transform: translateY(-12px) scale(0.92);
+    opacity: 0;
+  }
+
+  .sonner-toast-item.toast-error {
+    border-color: #fecdd3;
+    background: linear-gradient(135deg, #ffffff 85%, #fff1f2 100%);
+  }
+
+  .sonner-toast-item.toast-success {
+    border-color: #bbf7d0;
+    background: linear-gradient(135deg, #ffffff 85%, #f0fdf4 100%);
+  }
+</style>
+
+<script>
+  interface ToastOptions {
+    title: string;
+    description?: string;
+    duration?: number;
+    type?: 'error' | 'success' | 'info';
+  }
+
+  class SonnerToastManager {
+    private container: HTMLElement | null = null;
+
+    constructor() {
+      this.init();
+    }
+
+    private init() {
+      this.container = document.getElementById('sonner-toast-container');
+    }
+
+    public show(options: ToastOptions) {
+      if (!this.container) {
+        this.container = document.getElementById('sonner-toast-container');
+        if (!this.container) return;
+      }
+
+      const {
+        title,
+        description = '',
+        duration = 4200,
+        type = 'info'
+      } = options;
+
+      const toast = document.createElement('div');
+      toast.className = `sonner-toast-item toast-${type}`;
+      toast.setAttribute('role', 'status');
+
+      // Icon determination
+      let iconMarkup = '';
+      if (type === 'error') {
+        iconMarkup = `
+          <div class="w-8 h-8 rounded-full bg-rose-100/90 text-rose-600 flex items-center justify-center shrink-0 border border-rose-200 shadow-2xs">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        `;
+      } else if (type === 'success') {
+        iconMarkup = `
+          <div class="w-8 h-8 rounded-full bg-emerald-100/90 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200 shadow-2xs">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+        `;
+      } else {
+        iconMarkup = `
+          <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 border border-slate-200 shadow-2xs">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        `;
+      }
+
+      toast.innerHTML = `
+        ${iconMarkup}
+        <div class="flex-1 min-w-0 pr-1">
+          <div class="text-xs font-bold text-[#2c2a2d] tracking-tight leading-snug">${title}</div>
+          ${description ? `<div class="text-[12px] text-[#636164] mt-0.5 leading-relaxed">${description}</div>` : ''}
+        </div>
+        <button type="button" aria-label="Dismiss toast" class="close-btn p-1 -mr-1 -mt-1 text-lb-gray-light hover:text-lb-gray-dark rounded-md transition-colors cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      `;
+
+      this.container.appendChild(toast);
+
+      // Force layout then animate in
+      requestAnimationFrame(() => {
+        toast.classList.add('is-visible');
+      });
+
+      const removeToast = () => {
+        toast.classList.remove('is-visible');
+        toast.classList.add('is-hiding');
+        setTimeout(() => {
+          if (toast.parentElement) {
+            toast.remove();
+          }
+        }, 300);
+      };
+
+      // Close button
+      const closeBtn = toast.querySelector('.close-btn');
+      closeBtn?.addEventListener('click', () => removeToast());
+
+      // Auto dismiss
+      if (duration > 0) {
+        setTimeout(removeToast, duration);
+      }
+    }
+
+    public error(title: string, description?: string, duration = 4800) {
+      this.show({ title, description, duration, type: 'error' });
+    }
+
+    public success(title: string, description?: string, duration = 4800) {
+      this.show({ title, description, duration, type: 'success' });
+    }
+
+    public info(title: string, description?: string, duration = 3800) {
+      this.show({ title, description, duration, type: 'info' });
+    }
+  }
+
+  // Register globally
+  const toastManager = new SonnerToastManager();
+  (window as any).toast = toastManager;
+</script>

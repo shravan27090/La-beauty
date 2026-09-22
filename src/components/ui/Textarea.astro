@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"textarea"> {}
+
+const { rows = 4, class: className = "", ...rest } = Astro.props;
+
+const baseStyles =
+  "flex min-h-[100px] w-full rounded-xl border border-[#ebebdf] bg-[#fafaf6] px-4 py-3 text-sm text-lb-gray-dark shadow-sm transition-all duration-200 placeholder:text-lb-gray-light/80 hover:border-lb-gray/70 focus:bg-white focus:border-lb-gray-dark focus:outline-none focus-visible:outline-none  focus-visible:ring-1 focus-visible:ring-lb-gray-dark disabled:cursor-not-allowed disabled:opacity-50 font-sans caret-lb-gray-dark";
+---
+
+<textarea rows={rows} class={`${baseStyles} ${className}`} {...rest}></textarea>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  experience: string;
+  specialties: string[];
+  image: string;
+  bio: string;
+}
+
+const { name, role, experience, specialties, image, bio } = Astro.props;
+---
+
+<div class="bg-white rounded-3xl overflow-hidden border border-[#ebebdf] shadow-sm hover:shadow-luxury-hover transition-all duration-500 flex flex-col group hover:-translate-y-1">
+  <div class="relative h-72 overflow-hidden bg-[#ebebdf]">
+    <img
+      src={image}
+      alt={name}
+      loading="lazy"
+      class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70"></div>
+    
+    <!-- Experience Badge -->
+    <span class="absolute top-4 left-4 text-[11px] font-semibold tracking-wider text-white bg-lb-gray-dark/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+      {experience}
+    </span>
+
+    <div class="absolute bottom-4 left-4 right-4 text-white">
+      <h3 class="font-serif text-2xl font-bold tracking-tight">
+        {name}
+      </h3>
+      <p class="text-xs text-amber-300 font-medium tracking-wide">
+        {role}
+      </p>
+    </div>
+  </div>
+
+  <div class="p-6 flex flex-col flex-grow justify-between">
+    <p class="text-sm text-lb-gray leading-relaxed font-light mb-6">
+      {bio}
+    </p>
+
+    <div>
+      <span class="text-[11px] uppercase tracking-wider font-semibold text-lb-gray-light block mb-2">
+        Signature Specialties
+      </span>
+      <div class="flex flex-wrap gap-1.5">
+        {specialties.map((specialty) => (
+          <span class="text-[11px] font-medium bg-[#fafaf6] text-lb-gray-dark px-2.5 py-1 rounded-lg border border-[#ecece2]">
+            {specialty}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

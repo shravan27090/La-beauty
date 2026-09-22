@@ -1,0 +1,38 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"select"> {
+  id?: string;
+  name?: string;
+  required?: boolean;
+  class?: string;
+}
+
+const { id, name, required, class: className = "", ...rest } = Astro.props;
+
+const baseStyles =
+  "flex h-12 w-full appearance-none rounded-xl border border-[#ebebdf] bg-[#fafaf6] pl-4 pr-10 py-3 text-sm text-lb-gray-dark shadow-sm transition-all duration-200 hover:border-lb-gray/70 focus:bg-white focus:border-lb-gray-dark focus:outline-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-lb-gray-dark disabled:cursor-not-allowed disabled:opacity-50 font-sans cursor-pointer";
+---
+
+<div class="relative w-full">
+  <select
+    id={id}
+    name={name}
+    required={required}
+    class={`${baseStyles} ${className}`}
+    {...rest}
+  >
+    <slot />
+  </select>
+  <div
+    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-lb-gray"
+  >
+    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </div>
+</div>

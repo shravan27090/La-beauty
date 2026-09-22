@@ -1,0 +1,271 @@
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 0ms","label":"types","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":" astro  v7.3.3 ready in 318 ms\n┃ Local    http://127.0.0.1:4321/","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+{"message":"[200] / 12ms","label":null,"level":"info"}
+{"message":"[200] /services 15ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 9ms","label":null,"level":"info"}
+{"message":"[200] /about 29ms","label":null,"level":"info"}
+{"message":"[200] /contact 11ms","label":null,"level":"info"}
+{"message":"[200] /about 8ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 3ms","label":null,"level":"info"}
+{"message":"[200] /services 6ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] /services 5ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] /contact 7ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"[200] /services 14ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 6ms","label":null,"level":"info"}
+{"message":"[200] /about 8ms","label":null,"level":"info"}
+{"message":"[200] /contact 4ms","label":null,"level":"info"}
+{"message":"[200] /contact 113ms","label":null,"level":"info"}
+{"message":"[200] / 57ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 47ms","label":null,"level":"info"}
+{"message":"[200] /contact 13ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 21ms","label":null,"level":"info"}
+{"message":"[200] /services 13ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 6ms","label":null,"level":"info"}
+{"message":"[200] /about 6ms","label":null,"level":"info"}
+{"message":"[200] /contact 3ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 56ms","label":null,"level":"info"}
+{"message":"[200] / 78ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 22ms","label":null,"level":"info"}
+{"message":"[200] / 11ms","label":null,"level":"info"}
+{"message":"src/layouts/DefaultLayout.astro","label":"watch","level":"info"}
+{"message":"[200] / 18ms","label":null,"level":"info"}
+{"message":"[200] /contact 36ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /contact 77ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 4ms","label":null,"level":"info"}
+{"message":"[200] / 24ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 7ms","label":null,"level":"info"}
+{"message":"[200] / 31ms","label":null,"level":"info"}
+{"message":"src/components/ImageGallery.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 6ms","label":null,"level":"info"}
+{"message":"[200] / 32ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 13ms","label":null,"level":"info"}
+{"message":"[200] / 35ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 16ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 12ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 8ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] /services 82ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 224ms","label":null,"level":"info"}
+{"message":"[200] /services 24ms","label":null,"level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] /about 86ms","label":null,"level":"info"}
+{"message":"[200] /contact 50ms","label":null,"level":"info"}
+{"message":"[console.warn] Unable to access iframe: SecurityError: Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"http://127.0.0.1:4321\" from accessing a cross-origin frame.\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1390:28)\n    at eval (eval at evaluate (:290:30), <anonymous>:1591:18)\n    at UtilityScript.evaluate (<anonymous>:297:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)","label":"vite","level":"warn"}
+{"message":"[console.warn] Unable to access iframe: SecurityError: Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"http://127.0.0.1:4321\" from accessing a cross-origin frame.\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1390:28)\n    at eval (eval at evaluate (:290:30), <anonymous>:1591:18)\n    at UtilityScript.evaluate (<anonymous>:297:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)","label":"vite","level":"warn"}
+{"message":"[console.warn] Unable to access iframe: SecurityError: Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"http://127.0.0.1:4321\" from accessing a cross-origin frame.\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1551:15)\n    at buildDomTree (eval at evaluate (:290:30), <anonymous>:1390:28)\n    at eval (eval at evaluate (:290:30), <anonymous>:1591:18)\n    at UtilityScript.evaluate (<anonymous>:297:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)","label":"vite","level":"warn"}
+{"message":"[200] / 15ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] / 29ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 19ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 18ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /services 21ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 40ms","label":null,"level":"info"}
+{"message":"[200] /about 29ms","label":null,"level":"info"}
+{"message":"[200] /contact 48ms","label":null,"level":"info"}
+{"message":"[200] /contact 8ms","label":null,"level":"info"}
+{"message":"[200] /contact 5ms","label":null,"level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] /contact 8ms","label":null,"level":"info"}
+{"message":"[200] / 11ms","label":null,"level":"info"}
+{"message":"[200] / 36ms","label":null,"level":"info"}
+{"message":"[200] /services 11ms","label":null,"level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"[200] /contact 14ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 27ms","label":null,"level":"info"}
+{"message":"[200] /contact 10ms","label":null,"level":"info"}
+{"message":"[200] /contact 4ms","label":null,"level":"info"}
+{"message":"[200] / 36ms","label":null,"level":"info"}
+{"message":"[200] /contact 3ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 22ms","label":null,"level":"info"}
+{"message":"[200] /services 8ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] /contact 13ms","label":null,"level":"info"}
+{"message":"[200] /about 9ms","label":null,"level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"[200] /contact 9ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 27ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 20ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 20ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 40ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 5ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 6ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 46ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 23ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 25ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 20ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 25ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 27ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 29ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 40ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 29ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 40ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 29ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 20ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 24ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 25ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 27ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/MultiSelect.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /contact 36ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 23ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/MultiSelect.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/DatePicker.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /contact 21ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css, /src/components/ui/MultiSelect.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] /contact 40ms","label":null,"level":"info"}
+{"message":"[200] / 24ms","label":null,"level":"info"}
+{"message":"[200] /contact 5ms","label":null,"level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
+{"message":"server restarted.","label":"vite","level":"info"}
+{"message":"[200] / 27ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 25ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 41ms","label":null,"level":"info"}
+{"message":"[200] /contact 25ms","label":null,"level":"info"}
+{"message":"[200] /contact 12ms","label":null,"level":"info"}
+{"message":"[200] /contact 6ms","label":null,"level":"info"}
+{"message":"[200] /contact 14ms","label":null,"level":"info"}
+{"message":"[200] /contact 11ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 29ms","label":null,"level":"info"}
+{"message":"[200] /contact 29ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 31ms","label":null,"level":"info"}
+{"message":"[200] /contact 31ms","label":null,"level":"info"}
+{"message":"src/components/Header.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 23ms","label":null,"level":"info"}
+{"message":"[200] /contact 23ms","label":null,"level":"info"}
+{"message":"[200] /contact 17ms","label":null,"level":"info"}
+{"message":"[200] /contact 4ms","label":null,"level":"info"}
+{"message":"[200] / 35ms","label":null,"level":"info"}
+{"message":"[200] /contact 5ms","label":null,"level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /contact 19ms","label":null,"level":"info"}
+{"message":"[200] / 66ms","label":null,"level":"info"}
+{"message":"[200] /contact 7ms","label":null,"level":"info"}
+{"message":"[200] /contact 5ms","label":null,"level":"info"}
+{"message":"[200] /contact 11ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 218ms","label":null,"level":"info"}
+{"message":"[200] /contact 160ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 26ms","label":null,"level":"info"}
+{"message":"[200] / 38ms","label":null,"level":"info"}
+{"message":"[200] /contact 13ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 28ms","label":null,"level":"info"}
+{"message":"[200] / 61ms","label":null,"level":"info"}
+{"message":"[200] /contact 38ms","label":null,"level":"info"}
+{"message":"src/components/ReviewsMarquee.astro","label":"watch","level":"info"}
+{"message":"[200] /contact 27ms","label":null,"level":"info"}
+{"message":"[200] / 884ms","label":null,"level":"info"}
+{"message":"[200] / 884ms","label":null,"level":"info"}
+{"message":"changed tsconfig file detected: /Users/shravanboloor/La beauty/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.","label":"vite","level":"info"}
+{"message":"program reload","label":"vite","level":"info"}
+{"message":"[200] / 28ms","label":null,"level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"[200] /contact 45ms","label":null,"level":"info"}
+{"message":"[200] /services 36ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 24ms","label":null,"level":"info"}
+{"message":"[200] /about 24ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 5ms","label":null,"level":"info"}
+{"message":"[200] /services 5ms","label":null,"level":"info"}
+{"message":"src/components/ContactForm.astro","label":"watch","level":"info"}
+{"message":"[200] /services 11ms","label":null,"level":"info"}
+{"message":"[200] / 12ms","label":null,"level":"info"}
+{"message":"[200] /contact 38ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /services 11ms","label":null,"level":"info"}
+{"message":"[200] / 11ms","label":null,"level":"info"}
+{"message":"[200] /contact 62ms","label":null,"level":"info"}
+{"message":"[200] /services 8ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 62ms","label":null,"level":"info"}
+{"message":"[200] /services 104ms","label":null,"level":"info"}
+{"message":"[200] /services 104ms","label":null,"level":"info"}
+{"message":"[200] /contact 11ms","label":null,"level":"info"}
+{"message":"[200] /contact 4ms","label":null,"level":"info"}
+{"message":"[200] /services 8ms","label":null,"level":"info"}
+{"message":"[200] / 14ms","label":null,"level":"info"}
+{"message":"[200] /contact 12ms","label":null,"level":"info"}
+{"message":"[200] /services 13ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 4ms","label":null,"level":"info"}
+{"message":"[200] /services 3ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 3ms","label":null,"level":"info"}
+{"message":"[200] /services 4ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] /about 5ms","label":null,"level":"info"}
+{"message":"[200] /contact 5ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] /services 16ms","label":null,"level":"info"}
+{"message":"[200] /portfolio 6ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] / 22ms","label":null,"level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}

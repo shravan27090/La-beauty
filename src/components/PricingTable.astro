@@ -1,0 +1,117 @@
+---
+const pricingCategories = [
+  {
+    category: 'Nail Lounge & Enhancements',
+    items: [
+      { name: 'Russian Precision Manicure', duration: '50 mins', price: '₹950', description: 'Dry cuticle perfection technique with medical e-file and nourishing keratin serum' },
+      { name: 'Gel Polish Application (Hands)', duration: '45 mins', price: '₹1,200', description: 'Long-lasting high-gloss chip-resistant European gel system cured with soft LED' },
+      { name: 'Full Set Sculpted Acrylic / Gel Extensions', duration: '90 mins', price: '₹2,800', description: 'Custom extension sculpting tailored to natural nail anatomy with premium tips' },
+      { name: 'Bridal & Bespoke Chrome Art (Per Nail)', duration: '15 mins', price: '₹250', description: 'Hand-painted Parisian motifs, glazed donut chrome, ombré or crystal inlays' },
+      { name: 'Safe Gel Extension Removal & Nail Rehab', duration: '35 mins', price: '₹600', description: 'Gentle non-damaging removal followed by deep Japanese IBX restorative therapy' },
+    ]
+  },
+  {
+    category: 'Deluxe Foot Spa & Pedicures',
+    items: [
+      { name: 'Classic Parisian Spa Pedicure', duration: '60 mins', price: '₹1,100', description: 'Organic eucalyptus foot soak, thorough callus smoothing, scrub, and massage' },
+      { name: 'Signature Rose & Milk Hydration Pedicure', duration: '75 mins', price: '₹1,650', description: 'Warm floral essential soak, volcanic pumice exfoliation, and paraffin wax wrap' },
+      { name: 'Gel Pedicure with Cuticle Realignment', duration: '80 mins', price: '₹1,850', description: 'Complete spa ritual finished with ultra-durable gel color lasting 4+ weeks' },
+    ]
+  },
+  {
+    category: 'Clinical Skincare & Facials',
+    items: [
+      { name: 'Parisian Radiance Glow Facial', duration: '60 mins', price: '₹2,400', description: 'Deep botanical enzyme cleansing, lymphatic face sculpting massage, and marine mask' },
+      { name: 'Hydra-Infusion Pore Clarifying Treatment', duration: '75 mins', price: '₹3,200', description: 'Micro-suction pore purification, peptide infusion, and cryo-calming skin therapy' },
+      { name: 'Collagen Lift & Anti-Pollution Shield', duration: '75 mins', price: '₹3,600', description: 'Restores skin elasticity, addresses sun damage, and enhances youthful texture' },
+    ]
+  },
+  {
+    category: 'Painless Laser Hair Reduction',
+    items: [
+      { name: 'Upper Lip & Chin Precision Session', duration: '20 mins', price: '₹1,400', description: 'Triple-wavelength cooling laser targeting fine to coarse facial hair' },
+      { name: 'Underarms Cooling Laser Treatment', duration: '25 mins', price: '₹1,800', description: 'Painless contact cooling technology with noticeable density reduction in 1 session' },
+      { name: 'Full Arms & Legs Package (Single Session)', duration: '60 mins', price: '₹5,500', description: 'Comprehensive body smoothing conducted in sterilized medical suites' },
+    ]
+  }
+];
+---
+
+<div class="w-full bg-white rounded-3xl p-6 sm:p-10 border border-[#ebebdf] shadow-luxury">
+  <div class="max-w-3xl mb-10 text-center mx-auto">
+    <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold">Clear & Honest</span>
+    <h3 class="font-serif text-3xl font-bold text-lb-gray-dark mt-2 mb-3">
+      Transparent Salon Menu & Pricing
+    </h3>
+    <p class="text-sm text-lb-gray">
+      Every treatment includes individual single-use file kits, medical-grade autoclaved tools, and premium European products. No surprise charges.
+    </p>
+  </div>
+
+  <div class="space-y-10">
+    {pricingCategories.map((group) => (
+      <div>
+        <div class="flex items-center space-x-3 mb-6 pb-2 border-b border-[#f2f2eb]">
+          <span class="w-2.5 h-2.5 rounded-full bg-lb-gray"></span>
+          <h4 class="font-serif text-xl font-bold text-lb-gray-dark tracking-wide">
+            {group.category}
+          </h4>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4">
+          {group.items.map((item) => (
+            <div class="p-4 sm:p-5 rounded-2xl bg-[#fafaf6] hover:bg-[#f6f6ee] border border-transparent hover:border-[#ebebdf] transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="flex-grow pr-0 sm:pr-6">
+                <div class="flex items-center flex-wrap gap-2">
+                  <h5 class="font-serif font-bold text-base text-lb-gray-dark">
+                    {item.name}
+                  </h5>
+                  <span class="font-number text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-white text-lb-gray border border-[#ecece2]">
+                    {item.duration}
+                  </span>
+                </div>
+                <p class="text-xs text-lb-gray mt-1 font-light leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between sm:justify-end gap-5 flex-shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#ecece2]">
+                <span class="font-number text-xl font-bold text-lb-gray-dark">
+                  {item.price}
+                </span>
+                <a
+                  href={`https://wa.me/917204103767?text=Hello%20La%20Beaut%C3%A9,%20I%20would%20like%20to%20reserve%20${encodeURIComponent(item.name)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-lb-gray text-white hover:bg-lb-gray-dark transition-colors shadow-sm"
+                >
+                  Book
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Bottom Bridal Suite Notification -->
+  <div class="mt-10 p-6 rounded-2xl bg-[#fafaf6] border border-[#ebebdf] flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-full bg-lb-gray text-white flex items-center justify-center flex-shrink-0 font-number font-bold text-base">
+        %
+      </div>
+      <div>
+        <h5 class="font-serif font-bold text-sm text-lb-gray-dark">Bespoke Bridal & Group Packages</h5>
+        <p class="text-xs text-lb-gray">Inquire for custom bridal nail art suites, bridesmaid pampering sessions, and seasonal memberships.</p>
+      </div>
+    </div>
+    <!-- Secondary Outline Button -->
+    <a
+      href="tel:+917204103767"
+      class="whitespace-nowrap px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold border border-lb-gray text-lb-gray hover:bg-lb-gray hover:text-white transition-colors"
+    >
+      Call for Consultation
+    </a>
+  </div>
+</div>

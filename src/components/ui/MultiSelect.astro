@@ -1,0 +1,405 @@
+---
+import Input from "./Input.astro";
+
+export interface MultiSelectOption {
+  value: string;
+  label: string;
+  category?: string;
+}
+
+interface Props {
+  id?: string;
+  name?: string;
+  placeholder?: string;
+  options: MultiSelectOption[];
+  required?: boolean;
+  class?: string;
+}
+
+const {
+  id = "multi-select-dropdown",
+  name = "service",
+  placeholder = "Select services...",
+  options = [],
+  required = false,
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  class={`relative w-full custom-multiselect ${className}`}
+  id={`${id}-wrapper`}
+>
+  <!-- Hidden input for standard form submission -->
+  <input type="hidden" id={id} name={name} value="" required={required} />
+
+  <!-- Trigger Button -->
+  <button
+    type="button"
+    id={`${id}-trigger`}
+    class="flex min-h-12 w-full items-center justify-between rounded-xl border border-[#ebebdf] bg-[#fafaf6] px-4 py-2 text-sm text-lb-gray-dark shadow-sm transition-all duration-200 hover:border-lb-gray/70 focus:bg-white focus:border-lb-gray-dark focus:outline-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-lb-gray-dark cursor-pointer text-left font-sans"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+  >
+    <div
+      id={`${id}-selected-container`}
+      class="flex flex-wrap items-center gap-1.5 max-w-[calc(100%-48px)]"
+    >
+      <span
+        id={`${id}-placeholder`}
+        class="text-sm text-lb-gray-light/80 select-none"
+      >
+        {placeholder}
+      </span>
+    </div>
+
+    <div class="flex items-center gap-1.5 shrink-0 ml-2">
+      <!-- Clear All Button -->
+      <span
+        id={`${id}-clear-btn`}
+        role="button"
+        tabindex="0"
+        title="Clear all"
+        class="hidden rounded-full p-1 text-lb-gray hover:text-lb-gray-dark hover:bg-lb-gray/10 transition-colors cursor-pointer"
+      >
+        <svg
+          class="w-3.5 h-3.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </span>
+
+      <!-- Chevron -->
+      <svg
+        class="w-4 h-4 text-lb-gray shrink-0 opacity-60 transition-transform duration-200"
+        id={`${id}-chevron`}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
+  </button>
+
+  <!-- Popover Dropdown Content -->
+  <div
+    id={`${id}-popover`}
+    class="hidden absolute z-50 left-0 right-0 mt-2 w-full rounded-2xl border border-[#ebebdf] bg-white shadow-xl overflow-hidden font-sans animate-fade-in"
+  >
+    <!-- Search Bar -->
+    <div class="p-2 border-b border-[#f0f0e6] bg-[#fafaf6]/60">
+      <div class="relative flex items-center">
+        <svg
+          class="w-4 h-4 text-lb-gray absolute left-3 pointer-events-none"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <Input
+          type="text"
+          id={`${id}-search`}
+          placeholder="Search treatments..."
+          class="w-full h-9 pl-9 pr-3 py-2 text-xs rounded-lg border border-[#ebebdf] bg-white text-lb-gray-dark placeholder:text-lb-gray-light focus:outline-none focus-visible:outline-none focus:border-lb-gray-dark font-sans"
+        />
+      </div>
+    </div>
+
+    <!-- Quick Action Header -->
+    <div
+      class="flex items-center justify-between px-3 py-2 border-b border-[#f0f0e6] text-[11px] font-semibold text-lb-gray bg-[#fafaf6]/40"
+    >
+      <button
+        type="button"
+        id={`${id}-toggle-all`}
+        class="hover:text-lb-gray-dark transition-colors cursor-pointer"
+      >
+        Select All
+      </button>
+      <span
+        id={`${id}-count-text`}
+        class="text-[10px] text-lb-gray-light font-number"
+      >
+        0 selected
+      </span>
+    </div>
+
+    <!-- Options List -->
+    <div
+      id={`${id}-options-list`}
+      class="max-h-60 overflow-y-auto p-1.5 space-y-0.5 divide-y divide-[#fafaf6]"
+      role="listbox"
+    >
+      {
+        options.map((option) => (
+          <div
+            class="multiselect-option flex items-center justify-between px-3 py-2 rounded-xl text-xs text-lb-gray-dark hover:bg-[#f6f6ee] transition-colors cursor-pointer select-none"
+            data-value={option.value}
+            data-label={option.label}
+            role="option"
+            aria-selected="false"
+          >
+            <div class="flex items-center gap-2.5 truncate">
+              <div class="check-box w-4 h-4 rounded border border-[#c8c6c2] flex items-center justify-center transition-colors shrink-0 bg-white">
+                <svg
+                  class="check-icon w-3 h-3 text-white hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span class="option-label truncate font-medium">
+                {option.label}
+              </span>
+            </div>
+
+            {option.category && (
+              <span class="text-[10px] text-lb-gray-light font-medium uppercase tracking-wider shrink-0 ml-2">
+                {option.category}
+              </span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Empty State -->
+    <div
+      id={`${id}-empty`}
+      class="hidden py-6 text-center text-xs text-lb-gray-light"
+    >
+      No treatments found.
+    </div>
+
+    <!-- Done / Close Footer -->
+    <div class="p-2 border-t border-[#f0f0e6] bg-[#fafaf6]/60">
+      <button
+        type="button"
+        id={`${id}-done-btn`}
+        class="w-full py-1.5 text-center text-xs font-semibold uppercase tracking-wider text-lb-gray hover:text-white hover:bg-lb-gray rounded-lg transition-colors cursor-pointer"
+      >
+        Done
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  :global(.multiselect-option[aria-selected="true"]) {
+    background-color: #f2f2ea !important;
+  }
+  :global(.multiselect-option[aria-selected="true"] .check-box) {
+    background-color: #2c2a2d !important;
+    border-color: #2c2a2d !important;
+  }
+  :global(.multiselect-option[aria-selected="true"] .check-icon) {
+    display: block !important;
+  }
+</style>
+
+<script define:vars={{ id, placeholder }}>
+  const wrapper = document.getElementById(`${id}-wrapper`);
+  const trigger = document.getElementById(`${id}-trigger`);
+  const popover = document.getElementById(`${id}-popover`);
+  const hiddenInput = document.getElementById(id);
+  const selectedContainer = document.getElementById(`${id}-selected-container`);
+  const placeholderEl = document.getElementById(`${id}-placeholder`);
+  const clearBtn = document.getElementById(`${id}-clear-btn`);
+  const chevron = document.getElementById(`${id}-chevron`);
+  const searchInput = document.getElementById(`${id}-search`);
+  const toggleAllBtn = document.getElementById(`${id}-toggle-all`);
+  const countText = document.getElementById(`${id}-count-text`);
+  const optionsList = document.getElementById(`${id}-options-list`);
+  const emptyEl = document.getElementById(`${id}-empty`);
+  const doneBtn = document.getElementById(`${id}-done-btn`);
+
+  let selectedValues = [];
+  const options = Array.from(
+    optionsList.querySelectorAll(".multiselect-option"),
+  );
+
+  function updateDisplay() {
+    // Update hidden input
+    hiddenInput.value = selectedValues.join(", ");
+
+    // Update clear button visibility
+    if (selectedValues.length > 0) {
+      clearBtn.classList.remove("hidden");
+    } else {
+      clearBtn.classList.add("hidden");
+    }
+
+    // Update counter
+    countText.textContent = `${selectedValues.length} selected`;
+    toggleAllBtn.textContent =
+      selectedValues.length === options.length ? "Deselect All" : "Select All";
+
+    // Clear chips container except placeholder
+    selectedContainer.innerHTML = "";
+
+    if (selectedValues.length === 0) {
+      const p = document.createElement("span");
+      p.className = "text-sm text-lb-gray-light/80 select-none font-sans";
+      p.textContent = placeholder;
+      selectedContainer.appendChild(p);
+    } else {
+      // Show simple count badge as requested (e.g. "3 selected")
+      const countBadge = document.createElement("span");
+      countBadge.className =
+        "inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#ecece2] text-lb-gray-dark border border-[#dfdfd5] font-sans";
+      countBadge.textContent = `${selectedValues.length} selected`;
+      selectedContainer.appendChild(countBadge);
+    }
+
+    // Update checkboxes in dropdown
+    options.forEach((opt) => {
+      const isSelected = selectedValues.includes(opt.dataset.value);
+      opt.setAttribute("aria-selected", isSelected ? "true" : "false");
+      const box = opt.querySelector(".check-box");
+      const icon = opt.querySelector(".check-icon");
+
+      if (box && icon) {
+        if (isSelected) {
+          box.style.backgroundColor = "#2c2a2d";
+          box.style.borderColor = "#2c2a2d";
+          icon.classList.remove("hidden");
+        } else {
+          box.style.backgroundColor = "#ffffff";
+          box.style.borderColor = "#c0beb8";
+          icon.classList.add("hidden");
+        }
+      }
+    });
+  }
+
+  function toggleDropdown(show) {
+    if (show) {
+      popover.classList.remove("hidden");
+      trigger.setAttribute("aria-expanded", "true");
+      chevron.classList.add("rotate-180");
+      searchInput.focus();
+    } else {
+      popover.classList.add("hidden");
+      trigger.setAttribute("aria-expanded", "false");
+      chevron.classList.remove("rotate-180");
+      searchInput.value = "";
+      filterOptions("");
+    }
+  }
+
+  function filterOptions(query) {
+    const q = query.toLowerCase().trim();
+    let visibleCount = 0;
+
+    options.forEach((opt) => {
+      const label = (opt.dataset.label || "").toLowerCase();
+      if (!q || label.includes(q)) {
+        opt.classList.remove("hidden");
+        visibleCount++;
+      } else {
+        opt.classList.add("hidden");
+      }
+    });
+
+    if (visibleCount === 0) {
+      emptyEl.classList.remove("hidden");
+    } else {
+      emptyEl.classList.add("hidden");
+    }
+  }
+
+  // Trigger click
+  trigger.addEventListener("click", (e) => {
+    // If clicked on a badge remove button, remove it without opening/closing
+    const removeBtn = e.target.closest("[data-remove]");
+    if (removeBtn) {
+      const valToRemove = removeBtn.getAttribute("data-remove");
+      selectedValues = selectedValues.filter((v) => v !== valToRemove);
+      updateDisplay();
+      return;
+    }
+
+    // If clicked on clear all button
+    if (e.target.closest(`#${id}-clear-btn`)) {
+      selectedValues = [];
+      updateDisplay();
+      return;
+    }
+
+    const isHidden = popover.classList.contains("hidden");
+    toggleDropdown(isHidden);
+  });
+
+  // Search input typing
+  searchInput.addEventListener("input", (e) => {
+    filterOptions(e.target.value);
+  });
+
+  // Option select click
+  options.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      const val = opt.dataset.value;
+      if (selectedValues.includes(val)) {
+        selectedValues = selectedValues.filter((v) => v !== val);
+      } else {
+        selectedValues.push(val);
+      }
+      updateDisplay();
+    });
+  });
+
+  // Toggle all button
+  toggleAllBtn.addEventListener("click", () => {
+    if (selectedValues.length === options.length) {
+      selectedValues = [];
+    } else {
+      selectedValues = options.map((o) => o.dataset.value);
+    }
+    updateDisplay();
+  });
+
+  // Done button
+  doneBtn.addEventListener("click", () => {
+    toggleDropdown(false);
+  });
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) {
+      toggleDropdown(false);
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !popover.classList.contains("hidden")) {
+      toggleDropdown(false);
+    }
+  });
+
+  updateDisplay();
+</script>

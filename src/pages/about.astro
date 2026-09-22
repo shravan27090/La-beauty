@@ -1,0 +1,206 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import StaffCard from '../components/StaffCard.astro';
+
+const reasons = [
+  {
+    title: 'Hospital-Grade Autoclave Sterilization',
+    desc: 'All stainless steel cuticle nippers, pushers, and carbide bits undergo ultrasonic cleansing followed by high-pressure medical autoclave sterilization.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+  {
+    title: 'European 9-Free Vegan Gel Systems',
+    desc: 'We strictly utilize non-toxic formulations devoid of harmful chemicals like formaldehyde, toluene, and DBP, ensuring strong, healthy natural nails.',
+    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+  },
+  {
+    title: 'UAE Luxury Salon Heritage',
+    desc: 'Our founder brings over 10 years of directing high-end salon suites in Dubai and Abu Dhabi, importing the gold standard of client care to Udupi.',
+    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+  },
+  {
+    title: 'Painless Triple-Wavelength Laser',
+    desc: 'Equipped with sub-zero sapphire cooling tip that soothes skin simultaneously as the laser pulse targets hair follicles, completely pain-free.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    title: 'Private, Unhurried Treatment Suites',
+    desc: 'We never rush clients or double-book. Each session is a sanctuary of calm, designed with minimal ambient music and private suites.',
+    icon: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z',
+  },
+  {
+    title: 'Transparent & Respectful Pricing',
+    desc: 'What you see on our menu is exactly what you pay. Transparent pricing with complimentary aftercare consultations and cuticle care advice.',
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+];
+
+const therapists = [
+  {
+    name: 'Fatima Al-Zahra',
+    role: 'Founder & Master Nail Sculptor',
+    experience: '10+ Years Experience (UAE)',
+    specialties: ['Russian Dry Manicure', 'Architectural Extensions', 'Chrome Pigments'],
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+    bio: 'Trained in Dubai luxury salons, Fatima brings European sterile standards and meticulous Russian precision cuticle craftsmanship to Manipal.',
+  },
+  {
+    name: 'Priya Shetty',
+    role: 'Senior Dermal Aesthetician',
+    experience: '7+ Years Experience',
+    specialties: ['Parisian Facials', 'Lymphatic Sculpting', 'Skin Barrier Therapy'],
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+    bio: 'Passionate about holistic skin health, Priya specializes in non-invasive restorative facial rituals and gentle enzyme exfoliation.',
+  },
+  {
+    name: 'Anjelica Gomes',
+    role: 'Senior Nail Artist & Colorist',
+    experience: '5+ Years Experience',
+    specialties: ['Bridal Nail Art', 'Magnetic Cat-Eye', 'Gel Overlay Chemistry'],
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+    bio: 'Renowned for exquisite hand-painted details, Anjelica crafts custom nail art suited to each client’s lifestyle and wardrobe.',
+  },
+  {
+    name: 'Kavitha Hegde',
+    role: 'Laser & Spa Therapy Specialist',
+    experience: '6+ Years Experience',
+    specialties: ['Triple Wavelength Laser', 'Soothing Foot Reflexology', 'Hygienic Waxing'],
+    image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=600&q=80',
+    bio: 'Certified laser specialist committed to maximum comfort, customized Fitzpatrick skin settings, and clinical hygiene.',
+  },
+];
+---
+
+<DefaultLayout
+  title="About Us | La Beauté Luxury Salon Udupi & Manipal"
+  description="Learn about La Beauté - 10+ years of beauty expertise originating from luxury UAE salons, now bringing Parisian elegance and sterile Russian manicure to Manipal."
+>
+  <!-- HERO HEADER -->
+  <section class="py-16 sm:py-20 bg-[#f6f6ee] border-b border-[#ebebdf]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">Our Heritage & Craft</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-lb-gray-dark mt-3 mb-6">
+        The Story Behind La Beauté
+      </h1>
+      <p class="text-base sm:text-lg text-lb-gray max-w-2xl mx-auto font-light leading-relaxed">
+        Bringing ten years of international luxury salon mastery from the United Arab Emirates to the coastal heart of Manipal, Karnataka.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOUNDER & PHILOSOPHY SECTION -->
+  <section class="py-24 bg-white border-b border-[#ebebdf]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-5 reveal-on-scroll">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#f6f6ee] aspect-[4/5] bg-gray-100">
+            <img
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=85"
+              alt="Fatima Al-Zahra, Founder of La Beauté"
+              class="w-full h-full object-cover object-top"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <p class="font-serif text-2xl font-bold">Fatima Al-Zahra</p>
+              <p class="text-xs text-gray-300 font-sans font-medium">Founder & Master Stylist</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+          <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">Founder's Vision</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-lb-gray-dark">
+            "We believe salon care should be a serene ritual, not a rushed assembly line."
+          </h2>
+
+          <div class="space-y-4 text-sm sm:text-base text-lb-gray font-light leading-relaxed">
+            <p>
+              After spending over a decade managing high-volume, prestigious beauty suites across Dubai and Abu Dhabi, I observed a significant disparity when visiting coastal Karnataka: while demand for nail artistry and advanced skin therapies was booming, sterile clinical standards and specialized techniques like the Russian dry manicure were nearly absent.
+            </p>
+            <p>
+              La Beauté was founded at Greenview Apartments, SH 65, near Trends in Manipal to bridge that gap. We envisioned an intimate Parisian salon where every appointment is treated with unhurried devotion, instruments are surgically sterilized, and therapists possess genuine anatomical understanding of the nail bed and dermis.
+            </p>
+            <p>
+              In our first year, we have welcomed over 400 clients and earned a 4.9★ rating with 23 heartfelt reviews. We are immensely grateful to the Manipal and Udupi community for embracing our philosophy of quiet luxury.
+            </p>
+          </div>
+
+          <div class="pt-4 flex items-center space-x-6 border-t border-[#ebebdf] font-number">
+            <div>
+              <p class="text-3xl font-bold text-lb-gray-dark">10+</p>
+              <p class="text-xs uppercase tracking-wider text-lb-gray-light font-sans">Years in UAE</p>
+            </div>
+            <div class="h-8 w-px bg-[#ebebdf]"></div>
+            <div>
+              <p class="text-3xl font-bold text-lb-gray-dark">4.9★</p>
+              <p class="text-xs uppercase tracking-wider text-lb-gray-light font-sans">Google Rating</p>
+            </div>
+            <div class="h-8 w-px bg-[#ebebdf]"></div>
+            <div>
+              <p class="text-3xl font-bold text-lb-gray-dark">100%</p>
+              <p class="text-xs uppercase tracking-wider text-lb-gray-light font-sans">Single-Use Kits</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 REASONS TO CHOOSE US -->
+  <section class="py-24 bg-[#f6f6ee]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">The La Beauté Difference</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-lb-gray-dark mt-2 mb-4">
+          Six Standards We Never Compromise
+        </h2>
+        <p class="text-sm sm:text-base text-lb-gray font-light">
+          From the temperature of our foot spas to the micron rating of our sterilization pouches, every detail is considered.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {reasons.map((reason) => (
+          <div class="p-8 rounded-3xl bg-white border border-[#ebebdf] shadow-sm hover:shadow-luxury-hover transition-all duration-300 reveal-on-scroll">
+            <div class="w-12 h-12 rounded-2xl bg-[#f0f0e6] text-lb-gray-dark flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={reason.icon} />
+              </svg>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-lb-gray-dark mb-2">
+              {reason.title}
+            </h3>
+            <p class="text-xs sm:text-sm text-lb-gray font-light leading-relaxed">
+              {reason.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL TEAM BIOS -->
+  <section class="py-24 bg-white border-t border-[#ebebdf]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">Artisans of Care</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-lb-gray-dark mt-2 mb-4">
+          Meet Our Specialists
+        </h2>
+        <p class="text-sm sm:text-base text-lb-gray font-light">
+          Every therapist at La Beauté undergoes mandatory cross-training in Russian dry cuticle standards, hygiene sterilization, and customer care.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {therapists.map((therapist) => (
+          <div class="reveal-on-scroll">
+            <StaffCard {...therapist} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

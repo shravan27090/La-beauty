@@ -1,0 +1,179 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import PricingTable from '../components/PricingTable.astro';
+
+const allServices = [
+  // Manicures
+  {
+    title: 'Russian Precision Dry Manicure',
+    category: 'Manicure & Nails',
+    price: '₹950',
+    duration: '50 mins',
+    popular: true,
+    description: 'Dry cuticle perfection technique with medical-grade diamond e-file bits. Leaves the nail perimeter immaculate for clean regrowth lasting 3-4 weeks.',
+    image: '/classic-manicure-extractpics.webp',
+  },
+  {
+    title: 'European Gel Overlay & Reinforcement',
+    category: 'Manicure & Nails',
+    price: '₹1,200',
+    duration: '60 mins',
+    popular: false,
+    description: 'Fortifying natural rubber base gel application that repairs weak, brittle, or peeling natural nails with superior flexural strength.',
+    image: '/nail-services-extractpics.webp',
+  },
+  {
+    title: 'Sculpted Hard Gel / Acrylic Extensions',
+    category: 'Manicure & Nails',
+    price: '₹2,800',
+    duration: '90 mins',
+    popular: true,
+    description: 'Custom extension sculpting fitted to your natural nail apex. Durable, lightweight, odor-free, and sculpted to your desired length & silhouette.',
+    image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=800&q=80',
+  },
+
+  // Nail Art
+  {
+    title: 'Parisian French Glazed Chrome',
+    category: 'Nail Art',
+    price: '₹1,450',
+    duration: '60 mins',
+    popular: true,
+    description: 'Subtle micro-French smile line overlaid with fine micron pearlescent chrome powder. The epitome of quiet luxury.',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    title: 'Cat-Eye Velvet Magnetic Shimmer',
+    category: 'Nail Art',
+    price: '₹1,600',
+    duration: '65 mins',
+    popular: false,
+    description: '3D optical illusion gel manipulated with precision magnetic wand for a luxurious velvet texture that gleams in every light.',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+  },
+
+  // Pedicures
+  {
+    title: 'Signature Volcanic Herbal Pedicure',
+    category: 'Pedicure & Spa',
+    price: '₹1,350',
+    duration: '65 mins',
+    popular: true,
+    description: 'Organic eucalyptus foot soak, volcanic pumice smoothing, raw sugar cane exfoliation, deep callus treatment, and restorative acupressure massage.',
+    image: '/pedicure-extractpics.webp',
+  },
+  {
+    title: 'Rose & Shea Butter Paraffin Ritual',
+    category: 'Pedicure & Spa',
+    price: '₹1,750',
+    duration: '75 mins',
+    popular: false,
+    description: 'Deep therapeutic moisture bath with heated paraffin booties infused with Damask rose essential oil to soothe cracked heels and tired soles.',
+    image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80',
+  },
+
+  // Laser & Skin
+  {
+    title: 'Pain-Free Triple Wavelength Laser',
+    category: 'Laser & Aesthetics',
+    price: '₹1,800',
+    duration: '30 mins',
+    popular: true,
+    description: '755nm / 808nm / 1064nm combined diode laser featuring -5°C sapphire crystal contact cooling. Safe across all Indian Fitzpatrick skin types.',
+    image: '/laser-hair-reduction-extractpics.webp',
+  },
+  {
+    title: 'Parisian Radiance Enzyme Glow Facial',
+    category: 'Skincare',
+    price: '₹2,400',
+    duration: '60 mins',
+    popular: false,
+    description: 'French facial contouring massage, papaya and pumpkin enzyme peel, hyaluronic hydro-infusion, and soothing spirulina alginate mask.',
+    image: 'https://images.unsplash.com/photo-1512290900672-1f4142751f08?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    title: 'Silk Honey Waxing & Eyebrow Architecture',
+    category: 'Waxing & Brows',
+    price: '₹650',
+    duration: '35 mins',
+    popular: false,
+    description: 'Golden honey stripless hot wax designed for sensitive areas, accompanied by custom golden ratio brow mapping and organic aloe vera soothing.',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+  }
+];
+
+const addOns = [
+  { name: 'IBX Natural Nail Intensive Repair Treatment', price: '₹350', time: '+15 mins' },
+  { name: 'Deep Collagen Hand Mask with Warm Mittens', price: '₹400', time: '+15 mins' },
+  { name: 'Swarovski Crystal Inlay (Per Nail)', price: '₹150', time: '+5 mins' },
+  { name: 'Aroma Scalp & Neck Stress Release Massage', price: '₹500', time: '+20 mins' },
+  { name: 'Gentle Safe Extension Soak-off Removal', price: '₹450', time: '+25 mins' },
+  { name: 'Hydrating Lip Collagen Plumping Therapy', price: '₹300', time: '+10 mins' },
+];
+---
+
+<DefaultLayout
+  title="Our Services & Treatments | La Beauté Salon Manipal"
+  description="Explore our full menu of Russian dry manicures, Parisian nail art, spa pedicures, painless cooling laser hair reduction, and facials in Manipal, Udupi."
+>
+  <!-- HERO HEADER -->
+  <section class="py-16 sm:py-20 bg-[#f6f6ee] border-b border-[#ebebdf]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">Comprehensive Menu</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-lb-gray-dark mt-3 mb-6">
+        Curated Salon Services
+      </h1>
+      <p class="text-base sm:text-lg text-lb-gray max-w-2xl mx-auto font-light leading-relaxed">
+        From medical-grade Russian manicure precision to comfortable cooling laser treatments, discover therapies designed with Parisian artistry.
+      </p>
+    </div>
+  </section>
+
+  <!-- ALL SERVICES GRID -->
+  <section class="py-24 bg-[#f6f6ee]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {allServices.map((service) => (
+          <div class="reveal-on-scroll">
+            <ServiceCard {...service} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ON TREATMENTS SECTION -->
+  <section class="py-20 bg-white border-y border-[#ebebdf]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-[0.2em] text-lb-gray font-semibold font-sans">Elevate Your Visit</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-lb-gray-dark mt-2 mb-3">
+          Luxury Add-On Enhancements
+        </h2>
+        <p class="text-sm text-lb-gray font-light">
+          Combine any signature treatment with these quick restorative therapies.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {addOns.map((addon) => (
+          <div class="p-4 rounded-2xl bg-[#fafaf6] border border-[#ebebdf] flex items-center justify-between hover:border-lb-gray transition-colors">
+            <div>
+              <h4 class="font-serif font-bold text-sm text-lb-gray-dark">{addon.name}</h4>
+              <span class="text-[11px] text-lb-gray-light font-number">{addon.time}</span>
+            </div>
+            <span class="font-number font-bold text-base text-lb-gray-dark">{addon.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPARENT PRICING TABLE SECTION -->
+  <section class="py-24 bg-[#f6f6ee]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
+      <PricingTable />
+    </div>
+  </section>
+</DefaultLayout>

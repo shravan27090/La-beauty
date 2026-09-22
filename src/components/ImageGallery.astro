@@ -1,0 +1,321 @@
+---
+export interface GalleryItem {
+  id: string;
+  title: string;
+  category: 'nail-art' | 'manicure' | 'pedicure' | 'skin';
+  categoryLabel: string;
+  image: string;
+  description: string;
+}
+
+interface Props {
+  items?: GalleryItem[];
+  showFilters?: boolean;
+  limit?: number;
+}
+
+const defaultItems: GalleryItem[] = [
+  {
+    id: '1',
+    title: 'Parisian Minimalist French Chrome',
+    category: 'nail-art',
+    categoryLabel: 'Nail Art',
+    image: '/nail-services-extractpics.webp',
+    description: 'Ultra-fine micro French tips finished with pearlescent glazed chrome powder.'
+  },
+  {
+    id: '2',
+    title: 'Russian Dry Cuticle Precision & Nude Gel',
+    category: 'manicure',
+    categoryLabel: 'Manicure',
+    image: '/classic-manicure-extractpics.webp',
+    description: 'Immaculate e-file cuticle detailing followed by reinforcing natural builder gel.'
+  },
+  {
+    id: '3',
+    title: 'Volcanic Herbal Spa Pedicure Ritual',
+    category: 'pedicure',
+    categoryLabel: 'Pedicure',
+    image: '/pedicure-extractpics.webp',
+    description: 'Warm botanical soak, pumice stone heel restoration, and hydrating mask wrap.'
+  },
+  {
+    id: '4',
+    title: 'Advanced Dermal Cooling Laser Care',
+    category: 'skin',
+    categoryLabel: 'Skin & Laser',
+    image: '/laser-hair-reduction-extractpics.webp',
+    description: 'Targeted cooling laser session for smooth, irritation-free aesthetic perfection.'
+  },
+  {
+    id: '5',
+    title: 'Rose Gold Shimmer Gel Extensions',
+    category: 'nail-art',
+    categoryLabel: 'Nail Art',
+    image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=1000&q=85',
+    description: 'Sculpted almond extensions adorned with hand-painted delicate metallic rose accents.'
+  },
+  {
+    id: '6',
+    title: 'Parisian Radiance Enzyme Glow',
+    category: 'skin',
+    categoryLabel: 'Skin & Laser',
+    image: 'https://images.unsplash.com/photo-1512290900672-1f4142751f08?auto=format&fit=crop&w=1000&q=85',
+    description: 'Clinical lymphatic face sculpting massage with marine botanicals for luminous skin.'
+  },
+  {
+    id: '7',
+    title: 'Cat-Eye Velvet Magnetic Gel Art',
+    category: 'nail-art',
+    categoryLabel: 'Nail Art',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=85',
+    description: 'Dimensional metallic shimmer manipulated with precision neodymium magnets.'
+  },
+  {
+    id: '8',
+    title: 'Glazed Donut Clean Aesthetic Manicure',
+    category: 'manicure',
+    categoryLabel: 'Manicure',
+    image: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=1000&q=85',
+    description: 'Soft milky base topped with iridescent pearlescent powder for an effortless clean girl look.'
+  }
+];
+
+const {
+  items = defaultItems,
+  showFilters = true,
+  limit,
+} = Astro.props;
+
+const displayItems = limit ? items.slice(0, limit) : items;
+---
+
+<div class="gallery-wrapper w-full">
+  <!-- Filter Controls -->
+  {showFilters && (
+    <div class="flex flex-wrap justify-center gap-2 mb-10">
+      <button
+        type="button"
+        class="filter-btn active px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-lb-gray text-white shadow-sm"
+        data-filter="all"
+      >
+        All Works
+      </button>
+      <button
+        type="button"
+        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray hover:bg-lb-gray hover:text-white border border-[#ebebdf]"
+        data-filter="nail-art"
+      >
+        Nail Art & Chrome
+      </button>
+      <button
+        type="button"
+        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray hover:bg-lb-gray hover:text-white border border-[#ebebdf]"
+        data-filter="manicure"
+      >
+        Russian Manicure
+      </button>
+      <button
+        type="button"
+        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray hover:bg-lb-gray hover:text-white border border-[#ebebdf]"
+        data-filter="pedicure"
+      >
+        Spa Pedicure
+      </button>
+      <button
+        type="button"
+        class="filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-lb-gray hover:bg-lb-gray hover:text-white border border-[#ebebdf]"
+        data-filter="skin"
+      >
+        Skin & Aesthetics
+      </button>
+    </div>
+  )}
+
+  <!-- Gallery Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="gallery-grid">
+    {displayItems.map((item) => (
+      <div
+        class="gallery-card group relative bg-white rounded-2xl overflow-hidden border border-[#ebebdf] shadow-sm hover:shadow-luxury-hover transition-all duration-500 cursor-pointer"
+        data-category={item.category}
+        data-title={item.title}
+        data-desc={item.description}
+        data-img={item.image}
+        data-category-label={item.categoryLabel}
+      >
+        <div class="relative h-72 overflow-hidden bg-[#ebebdf]">
+          <img
+            src={item.image}
+            alt={item.title}
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-85 transition-opacity duration-300"></div>
+
+          <!-- Category Pill -->
+          <span class="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-widest text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+            {item.categoryLabel}
+          </span>
+
+          <!-- Expand Icon -->
+          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+            </svg>
+          </div>
+
+          <!-- Bottom Title & Description Overlay -->
+          <div class="absolute bottom-0 left-0 right-0 p-5 transform transition-transform duration-300">
+            <h4 class="font-serif text-lg font-bold text-white leading-snug mb-1">
+              {item.title}
+            </h4>
+            <p class="text-xs text-gray-200 line-clamp-2 font-light opacity-90">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Native Light-Dismiss Dialog Lightbox Modal -->
+  <dialog
+    id="lightbox-dialog"
+    closedby="any"
+    aria-labelledby="lightbox-title"
+    class="p-0 bg-transparent rounded-3xl max-w-3xl w-full mx-auto backdrop:bg-black/80 backdrop:backdrop-blur-md shadow-2xl focus:outline-none overflow-hidden"
+  >
+    <div class="relative bg-white rounded-3xl overflow-hidden border border-white/20 flex flex-col shadow-2xl">
+      <!-- Close Button -->
+      <button
+        type="button"
+        id="lightbox-close"
+        class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-lb-gray transition-colors focus:outline-none"
+        aria-label="Close Preview"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Large Image Display -->
+      <div class="relative w-full h-[52vh] sm:h-[60vh] bg-black/10">
+        <img
+          id="lightbox-img"
+          src=""
+          alt=""
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-6 bg-[#f6f6ee] flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#ecece2]">
+        <div>
+          <span id="lightbox-category" class="text-[11px] font-bold uppercase tracking-widest text-lb-gray block mb-1">
+            Category
+          </span>
+          <h3 id="lightbox-title" class="font-serif text-2xl font-bold text-lb-gray-dark">
+            Title
+          </h3>
+          <p id="lightbox-desc" class="text-sm text-lb-gray mt-1 font-light max-w-xl">
+            Description
+          </p>
+        </div>
+
+        <a
+          id="lightbox-book-cta"
+          href="https://wa.me/917204103767?text=Hello%20La%20Beaut%C3%A9,%20I%20saw%20this%20design%20in%20your%20portfolio%20and%20would%20like%20to%20book%20it"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="whitespace-nowrap px-6 py-3 rounded-full text-xs uppercase tracking-wider font-semibold bg-lb-gray text-white hover:bg-lb-gray-dark transition-all duration-200 shadow-sm flex items-center justify-center space-x-2"
+        >
+          <span>Book This Style</span>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  // Filter Logic
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.gallery-card');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      filterBtns.forEach((b) => {
+        b.classList.remove('bg-lb-gray', 'text-white');
+        b.classList.add('bg-white', 'text-lb-gray');
+      });
+      btn.classList.remove('bg-white', 'text-lb-gray');
+      btn.classList.add('bg-lb-gray', 'text-white');
+
+      cards.forEach((card) => {
+        const category = card.dataset.category;
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Dialog Lightbox Logic
+  const dialog = document.getElementById('lightbox-dialog') as HTMLDialogElement | null;
+  const closeBtn = document.getElementById('lightbox-close');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  const lightboxCategory = document.getElementById('lightbox-category');
+  const lightboxBookCta = document.getElementById('lightbox-book-cta') as HTMLAnchorElement | null;
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      if (!dialog || !lightboxImg || !lightboxTitle || !lightboxDesc || !lightboxCategory) return;
+      
+      const img = card.dataset.img || '';
+      const title = card.dataset.title || '';
+      const desc = card.dataset.desc || '';
+      const categoryLabel = card.dataset.categoryLabel || '';
+
+      lightboxImg.src = img;
+      lightboxImg.alt = title;
+      lightboxTitle.textContent = title;
+      lightboxDesc.textContent = desc;
+      lightboxCategory.textContent = categoryLabel;
+
+      if (lightboxBookCta) {
+        lightboxBookCta.href = `https://wa.me/917204103767?text=Hello%20La%20Beaut%C3%A9,%20I%20love%20the%20${encodeURIComponent(title)}%20from%20your%20portfolio%20and%20would%20like%20to%20book%20an%20appointment`;
+      }
+
+      dialog.showModal();
+    });
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    dialog?.close();
+  });
+
+  // Fallback for browsers without declarative closedby support
+  if (dialog && !('closedBy' in HTMLDialogElement.prototype)) {
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      const isDialogContent = (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      );
+      if (!isDialogContent) {
+        dialog.close();
+      }
+    });
+  }
+</script>

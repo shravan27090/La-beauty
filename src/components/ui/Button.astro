@@ -1,0 +1,58 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  variant?: "default" | "secondary" | "outline" | "ghost" | "link";
+  size?: "default" | "sm" | "lg" | "icon";
+  asChild?: boolean;
+  href?: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+}
+
+const {
+  variant = "default",
+  size = "default",
+  href,
+  target,
+  rel,
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const baseStyles =
+  "inline-flex items-center justify-center whitespace-nowrap rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer";
+
+const variantStyles = {
+  default:
+    "bg-lb-gray text-white shadow-sm hover:bg-lb-gray-dark hover:shadow-md hover:-translate-y-0.5",
+  secondary:
+    "border border-lb-gray/30 bg-lb-gray/10 text-lb-gray-dark hover:bg-lb-gray/40 hover:border-lb-gray/60",
+  outline:
+    "border border-lb-gray bg-transparent text-lb-gray hover:bg-lb-gray/40 hover:text-lb-gray-dark hover:border-lb-gray",
+  ghost: "text-lb-gray hover:bg-black/5 hover:text-lb-gray-dark",
+  link: "text-lb-gray underline-offset-4 hover:underline",
+};
+
+const sizeStyles = {
+  default: "h-11 px-6 py-2.5",
+  sm: "h-9 px-4 text-[11px]",
+  lg: "h-12 px-8 text-sm",
+  icon: "h-10 w-10 p-0 rounded-full",
+};
+
+const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+---
+
+{
+  href ? (
+    <a href={href} target={target} rel={rel} class={classes} {...(rest as any)}>
+      <slot />
+    </a>
+  ) : (
+    <button class={classes} {...rest}>
+      <slot />
+    </button>
+  )
+}
